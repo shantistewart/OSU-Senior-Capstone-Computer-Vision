@@ -7,15 +7,17 @@
 //
 
 
-#include "blur_filter.h"
 #include <stdio.h>
+#include "blur_filter.h"
 
 
 
+/*
 int main() {
 	printf("\n----------TESTING gaussian_2D_kernel() FUNCTION----------\n\n");
 	// standard deviation of Gaussian kernel:
 	float sigma = 1.0;
+	// call function:
 	struct kernel G_kernel = gaussian_2D_kernel(sigma);
 	// rolling sum of weights (to check normalization):
 	float weight_sum = 0.0;
@@ -35,3 +37,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
+*/

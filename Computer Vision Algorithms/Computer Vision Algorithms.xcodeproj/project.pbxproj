@@ -11,6 +11,7 @@
 		3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3649C1EE2439B5A7006595A6 /* blur_filter.c */; };
 		3649C1F12439B734006595A6 /* blur_filter_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 3649C1F02439B734006595A6 /* blur_filter_test.c */; };
 		36F73C00243A9CE000BA63F3 /* utility_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = 36F73BFF243A9CE000BA63F3 /* utility_functions.c */; };
+		36F73C02243AA2E900BA63F3 /* utility_functions_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 36F73C01243AA2E900BA63F3 /* utility_functions_test.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		3649C1F02439B734006595A6 /* blur_filter_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = blur_filter_test.c; sourceTree = "<group>"; };
 		36F73BFE243A9CE000BA63F3 /* utility_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility_functions.h; sourceTree = "<group>"; };
 		36F73BFF243A9CE000BA63F3 /* utility_functions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility_functions.c; sourceTree = "<group>"; };
+		36F73C01243AA2E900BA63F3 /* utility_functions_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility_functions_test.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				3649C1F02439B734006595A6 /* blur_filter_test.c */,
 				36F73BFE243A9CE000BA63F3 /* utility_functions.h */,
 				36F73BFF243A9CE000BA63F3 /* utility_functions.c */,
+				36F73C01243AA2E900BA63F3 /* utility_functions_test.c */,
 			);
 			path = "Computer Vision Algorithms";
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 				3649C1F12439B734006595A6 /* blur_filter_test.c in Sources */,
 				3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */,
 				362ECC5D24396B5600E31FE4 /* main.c in Sources */,
+				36F73C02243AA2E900BA63F3 /* utility_functions_test.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
