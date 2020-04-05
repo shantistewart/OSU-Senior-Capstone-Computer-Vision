@@ -8,11 +8,16 @@
 
 
 #include <stdio.h>
+// include function files:
+#include "blur_filter.h"
 
 
+
+/*
 int main() {
     printf("Computer Vision Algorithms");
 	
 	printf("\n\n");
     return 0;
 }
+*/
