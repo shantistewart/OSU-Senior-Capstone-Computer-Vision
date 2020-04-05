@@ -26,7 +26,7 @@ Inputs:
 	sigma = standard deviation of Gaussian
 Outputs:
 	kernel = Gaussian kernel matrix
-		size: [KERNEL_SIZE, KERNEL_SIZE]
+		size: (KERNEL_SIZE, KERNEL_SIZE)
 2D Gaussian distribution:
 	f(x, y) = (1 / (pi*alpha)) * e^(-(x^2 + y^2) / alpha)
 		where alpha = 2*sigma^2
