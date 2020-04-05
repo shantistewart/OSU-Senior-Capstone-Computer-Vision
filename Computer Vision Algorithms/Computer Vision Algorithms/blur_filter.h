@@ -12,7 +12,7 @@
 
 
 // size of Gaussian kernel (must be odd!):
-#define KERNEL_SIZE 5
+#define KERNEL_SIZE 3
 
 struct kernel {
 	float kernel_matrix[KERNEL_SIZE][KERNEL_SIZE];
