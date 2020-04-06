@@ -68,10 +68,19 @@ struct RGB_image blur_filter(struct RGB_image raw_pic, float sigma) {
 	struct kernel G_kernel = gaussian_2D_kernel(sigma);
 	// blurred image struct:
 	struct RGB_image blur_pic;
+	// image struct for color subarrays of raw image:
+	struct image raw_pic_subarray;
 	
 	// convolve raw image with Gaussian kernel to reduce noise (blur image):
-	for (int color=0; color<NUM_COLORS; color++) {
-		// blur_pic.pixels[color] = 
+	for (int k=0; k<NUM_COLORS; k++) {
+		// blur color channel k of raw image:
+		raw_pic_subarray = kernel_conv_2D(raw_pic.pixels[k], KERNEL_SIZE, G_kernel.kernel_matrix);
+		// copy blurred image values of color channel k:
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				blur_pic.pixels[k][i][j] = raw_pic_subarray.pixels[i][j];
+			}
+		}
 	}
 	
 	return blur_pic;
