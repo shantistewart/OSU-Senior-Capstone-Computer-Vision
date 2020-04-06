@@ -10,17 +10,8 @@
 #ifndef utility_functions_h
 #define utility_functions_h
 
-#include <stdio.h>
 
-
-// number of rows of image pixels:
-#define NUM_ROWS 2
-// number of columns of image pixels:
-#define NUM_COLS 3
-
-struct image {
-	float pixels[NUM_ROWS][NUM_COLS];
-};
+#include "structs_and_constants.h"
 
 
 
