@@ -19,7 +19,7 @@ int main() {
 	
 	// test arrays:
 	int M = 2;
-	int N = 3;
+	int N = 2;
 	float array1[M][N];
 	float array2[M][N];
 	
@@ -38,21 +38,18 @@ int main() {
 		}
 		printf("\n");
 	}
-	// display array1:
-	printf("\n");
-	printf("Array 2:\n");
+	// display array2:
+	printf("\nArray 2:\n");
 	for (int i=0; i<M; i++) {
 		for (int j=0; j<N; j++) {
 			printf("%f  ", array2[i][j]);
 		}
 		printf("\n");
 	}
-	printf("\n");
 	
 	// call function:
 	float conv_sum = conv_sum_2D(M, N, array1, array2);
-	printf("Convolution sum of array1 and array2: %f\n", conv_sum);
-	
+	printf("\nConvolution sum of array1 and array2: %f\n", conv_sum);
 	printf("\n");
 	
 	
@@ -70,16 +67,15 @@ int main() {
 		}
 		printf("\n");
 	}
-	printf("\n");
 	
 	// test kernel:
 	N = 3;
 	float kernel[N][N];
 	// fill kernel and display:
-	printf("Kernel:\n");
+	printf("\nKernel:\n");
 	for (int i=0; i<N; i++) {
 		for (int j=0; j<N; j++) {
-			kernel[i][j] = i*N + j + 1;
+			kernel[i][j] = 1.0 / (N*N);
 			printf("%f  ", kernel[i][j]);
 		}
 		printf("\n");
@@ -87,7 +83,14 @@ int main() {
 	
 	// call function:
 	struct image conv_pic = kernel_conv_2D(pic, N, kernel);
-	
+	// display convolution output array:
+	printf("\nConvolution output array:\n");
+	for (int i=0; i<NUM_ROWS; i++) {
+		for (int j=0; j<NUM_COLS; j++) {
+			printf("%f  ", conv_pic.pixels[i][j]);
+		}
+		printf("\n");
+	}
 	
 	printf("\n\n");
 	return 0;

@@ -53,8 +53,10 @@ Outputs:
 struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
 	// padding size for same convolution:
 	int pad = (N-1) / 2;
-	// zero-pad input image:
+	// array for zero-padded input image:
 	float padded_pic[NUM_ROWS+2*pad][NUM_COLS+2*pad];
+	
+	// zero-pad input image:
 	for (int i=0; i<NUM_ROWS+2*pad; i++) {
 		for (int j=0; j<NUM_COLS+2*pad; j++) {
 			// if in padded borders:
@@ -68,6 +70,7 @@ struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
 			}
 		}
 	}
+	/*
 	// display padded image values:
 	printf("\nPadded input array:\n");
 	for (int i=0; i<NUM_ROWS+2*pad; i++) {
@@ -76,11 +79,25 @@ struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
 		}
 		printf("\n");
 	}
+	*/
 	
 	// 2D convolution output image:
 	struct image conv_pic;
+	// subarray of size (N,N) of padded_pic to use as input to conv_sum_2D():
+	float subarray[N][N];
 	
-	// ...
+	// same-convolve image with kernel:
+	for (int i=0; i<NUM_ROWS; i++) {
+		for (int j=0; j<NUM_COLS; j++) {
+			// extract subarray from padded_pic:
+			for (int k=0; k<N; k++) {
+				for (int l=0; l<N; l++) {
+					subarray[k][l] = padded_pic[i+k][j+l];
+				}
+			}
+			conv_pic.pixels[i][j] = conv_sum_2D(N, N, subarray, kernel);
+		}
+	}
 	
 	return conv_pic;
 }

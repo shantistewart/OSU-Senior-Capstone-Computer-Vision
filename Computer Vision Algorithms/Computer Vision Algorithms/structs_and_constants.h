@@ -17,7 +17,7 @@
 // number of color channels:
 #define NUM_COLORS 3
 // number of rows of image pixels:
-#define NUM_ROWS 2
+#define NUM_ROWS 3
 // number of columns of image pixels:
 #define NUM_COLS 3
 
