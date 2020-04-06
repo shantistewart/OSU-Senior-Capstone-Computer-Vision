@@ -13,9 +13,18 @@
 
 // size of Gaussian kernel (must be odd!):
 #define KERNEL_SIZE 3
+// number of color channels:
+#define NUM_COLORS 3
+// number of rows of image pixels:
+#define NUM_ROWS 2
+// number of columns of image pixels:
+#define NUM_COLS 3
 
 struct kernel {
 	float kernel_matrix[KERNEL_SIZE][KERNEL_SIZE];
+};
+struct RGB_image {
+	float pixels[NUM_ROWS][NUM_COLS][NUM_COLORS];
 };
 
 
@@ -32,6 +41,19 @@ Outputs:
 		where alpha = 2*sigma^2
 */
 struct kernel gaussian_2D_kernel(float sigma);
+
+
+/*
+Function Description: convolves image with a blurring filter to reduce noise.
+Inputs:
+	pic = raw RGB image
+		size: (NUM_ROWS, NUM_COLS, NUM_COLORS)
+	sigma = standard deviation of Gaussian kernel
+Outputs:
+	blur_pic = blurred image
+	size: (NUM_ROWS, NUM_COLS, NUM_COLORS)
+*/
+struct RGB_image blur_filter(struct RGB_image raw_pic, float sigma);
 
 
 

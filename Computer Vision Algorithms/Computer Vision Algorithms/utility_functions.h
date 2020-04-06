@@ -13,6 +13,16 @@
 #include <stdio.h>
 
 
+// number of rows of image pixels:
+#define NUM_ROWS 2
+// number of columns of image pixels:
+#define NUM_COLS 3
+
+struct image {
+	float pixels[NUM_ROWS][NUM_COLS];
+};
+
+
 
 /*
 Function Description: calculate the convolution sum of 2 2D arrays evaluated when the arrays are lined up.

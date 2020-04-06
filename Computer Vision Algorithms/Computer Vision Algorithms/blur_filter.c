@@ -27,18 +27,18 @@ Outputs:
 struct kernel gaussian_2D_kernel(float sigma) {
 	// kernel struct instance:
 	struct kernel gaussian_kernel;
-	// half-width of kernel:
-	int half_width = KERNEL_SIZE / 2;
+	// half-size of kernel:
+	int half_size = KERNEL_SIZE / 2;
 	// "alpha" value:
 	float alpha = 2*sigma*sigma;
 	// rolling sum of weights:
 	float weight_sum = 0.0;
 	
     // fill kernel with Gaussian values:
-	for (int x = -half_width; x <= half_width; x++) {
-		for (int y = -half_width; y <= half_width; y++) {
-			gaussian_kernel.kernel_matrix[x+half_width][y+half_width] = (1 / (M_PI*alpha)) * exp(-(x*x + y*y) / alpha);
-			weight_sum += gaussian_kernel.kernel_matrix[x+half_width][y+half_width];
+	for (int x = -half_size; x <= half_size; x++) {
+		for (int y = -half_size; y <= half_size; y++) {
+			gaussian_kernel.kernel_matrix[x+half_size][y+half_size] = (1 / (M_PI*alpha)) * exp(-(x*x + y*y) / alpha);
+			weight_sum += gaussian_kernel.kernel_matrix[x+half_size][y+half_size];
 		}
 	}
 	// normalize values:
@@ -49,4 +49,27 @@ struct kernel gaussian_2D_kernel(float sigma) {
 	}
 	
 	return gaussian_kernel;
+}
+
+
+/*
+Function Description: convolves image with a blurring filter to reduce noise.
+Inputs:
+	pic = raw RGB image
+		size: (NUM_ROWS, NUM_COLS, NUM_COLORS)
+	sigma = standard deviation of Gaussian kernel
+Outputs:
+	blur_pic = blurred image
+	size: (NUM_ROWS, NUM_COLS, NUM_COLORS)
+*/
+struct RGB_image blur_filter(struct RGB_image raw_pic, float sigma) {
+	// calculate Gaussian kernel:
+	struct kernel G_kernel = gaussian_2D_kernel(sigma);
+	// blurred image struct:
+	struct RGB_image blur_pic;
+	
+	// convolve raw image with Gaussian kernel to reduce noise (blur image):
+	// ...
+	
+	return blur_pic;
 }
