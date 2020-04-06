@@ -26,7 +26,7 @@ struct kernel {
 	float kernel_matrix[KERNEL_SIZE][KERNEL_SIZE];
 };
 struct RGB_image {
-	float pixels[NUM_ROWS][NUM_COLS][NUM_COLORS];
+	float pixels[NUM_COLORS][NUM_ROWS][NUM_COLS];
 };
 struct image {
 	float pixels[NUM_ROWS][NUM_COLS];

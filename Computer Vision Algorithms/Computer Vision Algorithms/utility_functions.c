@@ -39,34 +39,34 @@ float conv_sum_2D(int M, int N, float array1[M][N], float array2[M][N]) {
 
 
 /*
-Function Description: performs 2D kernel same (zero-padded) convolution on an input image, using a kernel matrix.
+Function Description: performs 2D kernel same (zero-padded) convolution on an input array, using a kernel matrix.
 Inputs:
-	pic = input image
-		type: struct image
-	N = size of kernel matrix (must be odd!)
+	array = input array
+		size: (NUM_ROWS, NUM_COLS)
+	N = size of kernel matrix
 	kernel = kernel matrix
 		size: (N, N)
 Outputs:
 	conv = 2D kernel convolution output
 		type: struct image
 */
-struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
+struct image kernel_conv_2D(float array[NUM_ROWS][NUM_COLS], int N, float kernel[N][N]) {
 	// padding size for same convolution:
 	int pad = (N-1) / 2;
-	// array for zero-padded input image:
-	float padded_pic[NUM_ROWS+2*pad][NUM_COLS+2*pad];
+	// array for zero-padded input array:
+	float pad_array[NUM_ROWS+2*pad][NUM_COLS+2*pad];
 	
-	// zero-pad input image:
+	// zero-pad input array:
 	for (int i=0; i<NUM_ROWS+2*pad; i++) {
 		for (int j=0; j<NUM_COLS+2*pad; j++) {
 			// if in padded borders:
 			if ( i<pad || j<pad || i>NUM_ROWS-1+pad || j>NUM_COLS-1+pad ) {
 				// pad with zero:
-				padded_pic[i][j] = 0;
+				pad_array[i][j] = 0;
 			}
 			else {
-				// copy value from un-padded image:
-				padded_pic[i][j] = pic.pixels[i-pad][j-pad];
+				// copy value from un-padded array:
+				pad_array[i][j] = array[i-pad][j-pad];
 			}
 		}
 	}
@@ -75,13 +75,13 @@ struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
 	printf("\nPadded input array:\n");
 	for (int i=0; i<NUM_ROWS+2*pad; i++) {
 		for (int j=0; j<NUM_COLS+2*pad; j++) {
-			printf("%f  ", padded_pic[i][j]);
+			printf("%f  ", pad_array[i][j]);
 		}
 		printf("\n");
 	}
 	*/
 	
-	// 2D convolution output image:
+	// 2D convolution output image struct:
 	struct image conv_pic;
 	// subarray of size (N,N) of padded_pic to use as input to conv_sum_2D():
 	float subarray[N][N];
@@ -92,7 +92,7 @@ struct image kernel_conv_2D(struct image pic, int N, float kernel[N][N]) {
 			// extract subarray from padded_pic:
 			for (int k=0; k<N; k++) {
 				for (int l=0; l<N; l++) {
-					subarray[k][l] = padded_pic[i+k][j+l];
+					subarray[k][l] = pad_array[i+k][j+l];
 				}
 			}
 			conv_pic.pixels[i][j] = conv_sum_2D(N, N, subarray, kernel);

@@ -57,13 +57,13 @@ int main() {
 	printf("\n----------TESTING kernel_conv_2D() FUNCTION----------\n\n");
 	
 	// test input array:
-	struct image pic;
+	float array[NUM_ROWS][NUM_COLS];
 	// fill input array and display:
 	printf("Input array:\n");
 	for (int i=0; i<NUM_ROWS; i++) {
 		for (int j=0; j<NUM_COLS; j++) {
-			pic.pixels[i][j] = i*NUM_COLS + j + 1;
-			printf("%f  ", pic.pixels[i][j]);
+			array[i][j] = i*NUM_COLS + j + 1;
+			printf("%f  ", array[i][j]);
 		}
 		printf("\n");
 	}
@@ -82,7 +82,7 @@ int main() {
 	}
 	
 	// call function:
-	struct image conv_pic = kernel_conv_2D(pic, N, kernel);
+	struct image conv_pic = kernel_conv_2D(array, N, kernel);
 	// display convolution output array:
 	printf("\nConvolution output array:\n");
 	for (int i=0; i<NUM_ROWS; i++) {
