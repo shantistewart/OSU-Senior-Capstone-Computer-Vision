@@ -14,6 +14,7 @@
 
 /*
 int main() {
+	// --------------------TESTING gaussian_2D_kernel() FUNCTION--------------------
 	printf("\n----------TESTING gaussian_2D_kernel() FUNCTION----------\n\n");
 	// standard deviation of Gaussian kernel:
 	float sigma = 1.0;
@@ -24,7 +25,6 @@ int main() {
 	
 	printf("Gaussian kernel of size %dx%d with a standard deviation of %f:\n\n", KERNEL_SIZE, KERNEL_SIZE, sigma);
 	for (int i=0; i<KERNEL_SIZE; i++) {
-		printf("Row %d:  ", i+1);
 		for (int j=0; j<KERNEL_SIZE; j++) {
 			printf("%f  ", G_kernel.kernel_matrix[i][j]);
 			weight_sum +=  G_kernel.kernel_matrix[i][j];

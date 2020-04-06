@@ -11,6 +11,7 @@
 #define structs_and_constants_h
 
 
+
 // size of Gaussian kernel (must be odd!):
 #define KERNEL_SIZE 3
 // number of color channels:
