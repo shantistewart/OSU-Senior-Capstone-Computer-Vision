@@ -30,7 +30,7 @@ struct gaussian_kernel gaussian_2D_kernel(float sigma);
 
 
 /*
-Function Description: convolves image with a blurring filter to reduce noise.
+Function Description: convolves input image with a Gaussian blur filter to reduce noise.
 Inputs:
 	raw_pic = raw RGB image
 		type: struct RGB_image
