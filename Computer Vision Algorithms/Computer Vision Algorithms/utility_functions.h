@@ -31,18 +31,20 @@ float conv_sum_2D(int M, int N, float array1[M][N], float array2[M][N]);
 
 
 /*
-Function Description: performs 2D kernel same (zero-padded) convolution on an input array, using a kernel matrix.
+Function Description: performs 2D kernel same (zero-padded) convolution on a multi-channel 2D input array with a kernel matrix.
 Inputs:
-	array = input array
-		size: (NUM_ROWS, NUM_COLS)
+	pic = multi-channel 2D input array
+		type: struct RGB_image
+			size of pic.pixels: (NUM_COLORS, NUM_ROWS, NUM_COLS)
 	N = size of kernel matrix
 	kernel = kernel matrix
 		size: (N, N)
 Outputs:
-	conv = 2D kernel convolution output
-		type: struct image
+	conv_pic = 2D kernel convolution output
+		type: struct RGB_image
+			size of conv_pic: ((NUM_COLORS, NUM_ROWS, NUM_COLS)
 */
-struct image kernel_conv_2D(float array[NUM_ROWS][NUM_COLS], int N, float kernel[N][N]);
+struct RGB_image kernel_conv_2D(struct RGB_image pic, int N, float kernel[N][N]);
 
 
 

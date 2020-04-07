@@ -12,7 +12,7 @@
 
 
 
-/*
+// /*
 int main() {
 	// --------------------TESTING conv_sum_2D() FUNCTION--------------------
 	printf("\n----------TESTING conv_sum_2D() FUNCTION----------\n\n");
@@ -49,21 +49,23 @@ int main() {
 	
 	// call function:
 	float conv_sum = conv_sum_2D(M, N, array1, array2);
-	printf("\nConvolution sum of array1 and array2: %f\n", conv_sum);
-	printf("\n");
+	printf("\nConvolution sum of array1 and array2: %f\n\n\n", conv_sum);
 	
 	
 	// --------------------TESTING kernel_conv_2D() FUNCTION--------------------
 	printf("\n----------TESTING kernel_conv_2D() FUNCTION----------\n\n");
 	
 	// test input array:
-	float array[NUM_ROWS][NUM_COLS];
+	struct RGB_image array;
 	// fill input array and display:
-	printf("Input array:\n");
-	for (int i=0; i<NUM_ROWS; i++) {
-		for (int j=0; j<NUM_COLS; j++) {
-			array[i][j] = i*NUM_COLS + j + 1;
-			printf("%f  ", array[i][j]);
+	printf("Input array:\n\n");
+	for (int color=0; color<NUM_COLORS; color++) {
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				array.pixels[color][i][j] = (color+1)*(i*NUM_COLS + j + 1);
+				printf("%f  ", array.pixels[color][i][j]);
+			}
+			printf("\n");
 		}
 		printf("\n");
 	}
@@ -72,7 +74,7 @@ int main() {
 	N = 3;
 	float kernel[N][N];
 	// fill kernel and display:
-	printf("\nKernel:\n");
+	printf("\nKernel:\n\n");
 	for (int i=0; i<N; i++) {
 		for (int j=0; j<N; j++) {
 			kernel[i][j] = 1.0 / (N*N);
@@ -80,14 +82,18 @@ int main() {
 		}
 		printf("\n");
 	}
+	printf("\n");
 	
 	// call function:
-	struct image conv_pic = kernel_conv_2D(array, N, kernel);
+	struct RGB_image conv_pic = kernel_conv_2D(array, N, kernel);
 	// display convolution output array:
-	printf("\nConvolution output array:\n");
-	for (int i=0; i<NUM_ROWS; i++) {
-		for (int j=0; j<NUM_COLS; j++) {
-			printf("%f  ", conv_pic.pixels[i][j]);
+	printf("\nConvolution output array:\n\n");
+	for (int color=0; color<NUM_COLORS; color++) {
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				printf("%f  ", conv_pic.pixels[color][i][j]);
+			}
+			printf("\n");
 		}
 		printf("\n");
 	}
@@ -95,4 +101,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-*/
+// */

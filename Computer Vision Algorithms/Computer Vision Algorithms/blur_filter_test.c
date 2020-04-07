@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING gaussian_2D_kernel() FUNCTION--------------------
 	printf("\n----------TESTING gaussian_2D_kernel() FUNCTION----------\n\n");
@@ -41,4 +41,4 @@ int main() {
 	// --------------------TESTING blur_filter() FUNCTION--------------------
 	printf("\n----------TESTING blur_filter() FUNCTION----------\n\n");
 }
-// */
+*/
