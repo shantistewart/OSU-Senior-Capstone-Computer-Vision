@@ -20,14 +20,14 @@ Inputs:
 	sigma = standard deviation of Gaussian
 Outputs:
 	kernel = Gaussian kernel matrix
-		size: (KERNEL_SIZE, KERNEL_SIZE)
+		type: struct gaussian_kernel
 2D Gaussian distribution:
 	f(x, y) = (1 / (pi*alpha)) * e^(-(x^2 + y^2) / alpha)
 		where alpha = 2*sigma^2
 */
-struct kernel gaussian_2D_kernel(float sigma) {
+struct gaussian_kernel gaussian_2D_kernel(float sigma) {
 	// kernel struct instance:
-	struct kernel gaussian_kernel;
+	struct gaussian_kernel g_kernel;
 	// half-size of kernel:
 	int half_size = KERNEL_SIZE / 2;
 	// "alpha" value:
@@ -38,18 +38,18 @@ struct kernel gaussian_2D_kernel(float sigma) {
     // fill kernel with Gaussian values:
 	for (int x = -half_size; x <= half_size; x++) {
 		for (int y = -half_size; y <= half_size; y++) {
-			gaussian_kernel.kernel_matrix[x+half_size][y+half_size] = (1 / (M_PI*alpha)) * exp(-(x*x + y*y) / alpha);
-			weight_sum += gaussian_kernel.kernel_matrix[x+half_size][y+half_size];
+			g_kernel.kernel_matrix[x+half_size][y+half_size] = (1 / (M_PI*alpha)) * exp(-(x*x + y*y) / alpha);
+			weight_sum += g_kernel.kernel_matrix[x+half_size][y+half_size];
 		}
 	}
 	// normalize values:
 	for (int i=0; i<KERNEL_SIZE; i++) {
 		for (int j=0; j<KERNEL_SIZE; j++) {
-			gaussian_kernel.kernel_matrix[i][j] /= weight_sum;
+			g_kernel.kernel_matrix[i][j] /= weight_sum;
 		}
 	}
 	
-	return gaussian_kernel;
+	return g_kernel;
 }
 
 
@@ -65,7 +65,7 @@ Outputs:
 */
 struct RGB_image blur_filter(struct RGB_image raw_pic, float sigma) {
 	// calculate Gaussian kernel:
-	struct kernel G_kernel = gaussian_2D_kernel(sigma);
+	struct gaussian_kernel g_kernel = gaussian_2D_kernel(sigma);
 	// blurred image struct:
 	struct RGB_image blur_pic;
 	// image struct for color subarrays of raw image:
@@ -74,7 +74,7 @@ struct RGB_image blur_filter(struct RGB_image raw_pic, float sigma) {
 	// convolve raw image with Gaussian kernel to reduce noise (blur image):
 	for (int k=0; k<NUM_COLORS; k++) {
 		// blur color channel k of raw image:
-		raw_pic_subarray = kernel_conv_2D(raw_pic.pixels[k], KERNEL_SIZE, G_kernel.kernel_matrix);
+		raw_pic_subarray = kernel_conv_2D(raw_pic.pixels[k], KERNEL_SIZE, g_kernel.kernel_matrix);
 		// copy blurred image values of color channel k:
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {

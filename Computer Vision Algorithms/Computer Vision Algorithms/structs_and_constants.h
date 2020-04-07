@@ -17,17 +17,22 @@
 // number of color channels:
 #define NUM_COLORS 3
 // number of rows of image pixels:
-#define NUM_ROWS 3
+#define NUM_ROWS 4
 // number of columns of image pixels:
-#define NUM_COLS 3
+#define NUM_COLS 4
 
 
-struct kernel {
+// Gaussian kernel matrix:
+struct gaussian_kernel {
 	float kernel_matrix[KERNEL_SIZE][KERNEL_SIZE];
 };
+
+// RGB image pixel values:
 struct RGB_image {
 	float pixels[NUM_COLORS][NUM_ROWS][NUM_COLS];
 };
+
+// image (1 color-channel) values:
 struct image {
 	float pixels[NUM_ROWS][NUM_COLS];
 };
