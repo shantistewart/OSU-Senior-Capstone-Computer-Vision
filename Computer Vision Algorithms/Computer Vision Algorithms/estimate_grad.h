@@ -17,7 +17,8 @@
 
 /*
 Function Description: initializes horizontal and vertical Sobel operators.
-Inputs: none
+Inputs:
+	total_weight = sum of matrix elements (for each operator)
 Outputs:
 	sobel = horizontal and vertical sobel operator matrices
 		type: struct sobel_operators
