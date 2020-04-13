@@ -9,3 +9,19 @@
 
 #include "estimate_grad.h"
 #include <stdio.h>
+
+
+
+/*
+Function Description: initializes horizontal and vertical Sobel operators.
+Inputs: none
+Outputs:
+	sobel = horizontal and vertical sobel operator matrices
+		type: struct sobel_operators
+*/
+struct sobel_operators init_sobel() {
+	// sobel_operators struct instance:
+	struct sobel_operators sobel;
+	
+	return sobel;
+}

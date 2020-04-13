@@ -26,7 +26,7 @@ Outputs:
 		where alpha = 2*sigma^2
 */
 struct gaussian_kernel gaussian_2D_kernel(float sigma) {
-	// kernel struct instance:
+	// gaussian_kernel struct instance:
 	struct gaussian_kernel g_kernel;
 	// half-size of kernel:
 	int half_size = KERNEL_SIZE / 2;
