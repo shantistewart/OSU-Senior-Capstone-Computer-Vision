@@ -23,7 +23,20 @@ Outputs:
 	sobel = horizontal and vertical sobel operator matrices
 		type: struct sobel_operators
 */
-struct sobel_operators init_sobel(float total_weight);
+struct sobel_operators init_sobel(float norm);
+
+
+/*
+Function Description: estimates gradients of input image using kernel convolution with Sobel operators.
+Inputs:
+	pic = RGB image
+		type: struct RGB_image
+	norm = number to divide default Sobel operator values by
+Outputs:
+	grads = estimated gradients of input image
+		type: struct image
+*/
+struct image estimate_grad(struct RGB_image pic, float norm);
 
 
 
