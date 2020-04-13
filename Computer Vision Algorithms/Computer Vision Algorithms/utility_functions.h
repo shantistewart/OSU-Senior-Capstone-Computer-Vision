@@ -16,6 +16,17 @@
 
 
 /*
+Function Description: approximates a L2 norm of a 2D vector.
+Inputs:
+	x = vector coordinate 1
+	y = vector coordinate 2
+Outputs:
+	norm = approximate L2 norm of input vector
+*/
+float approx_norm(float x, float y);
+
+
+/*
 Function Description: calculate the convolution sum of 2 2D arrays evaluated when the arrays are lined up.
 Inputs:
 	M = number of rows of arrays

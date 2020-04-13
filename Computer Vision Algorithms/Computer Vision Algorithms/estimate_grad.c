@@ -102,10 +102,29 @@ Outputs:
 struct image estimate_grad(struct RGB_image pic, float norm) {
 	// get Sobel operators:
 	struct sobel_operators sobel = init_sobel(norm);
-	// estimated gradients struct:
-	struct image grads;
 	// padding size for same convolution:
 	int pad = (SOBEL_SIZE-1) / 2;
+	// estimated gradients struct:
+	struct image grads;
+	
+	/*
+	// convolve each channel of input array with horizontal Sobel operator:
+	for (int color=0; color<NUM_COLORS; color++) {
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				// extract subarray from padded_pic:
+				for (int k=0; k<N; k++) {
+					for (int l=0; l<N; l++) {
+						subarray[k][l] = pad_array[color][i+k][j+l];
+					}
+				}
+				conv_pic.pixels[color][i][j] = conv_sum_2D(N, N, subarray, kernel);
+			}
+		}
+	}
+	*/
+	
+	// convolve each channel of input array with vertical Sobel operator:
 	
 	return grads;
 }
