@@ -32,7 +32,7 @@ struct RGB_image {
 	float pixels[NUM_COLORS][NUM_ROWS][NUM_COLS];
 };
 
-// image (1 color-channel) values:
+// image (1 color channel) pixel values:
 struct image {
 	float pixels[NUM_ROWS][NUM_COLS];
 };
