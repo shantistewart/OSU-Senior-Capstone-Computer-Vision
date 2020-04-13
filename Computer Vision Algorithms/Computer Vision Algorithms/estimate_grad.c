@@ -9,6 +9,7 @@
 
 #include "estimate_grad.h"
 #include <stdio.h>
+#include "utility_functions.h"
 
 
 
@@ -85,4 +86,26 @@ struct sobel_operators init_sobel(float norm) {
 	}
 	
 	return sobel;
+}
+
+
+/*
+Function Description: estimates gradients of input image using same (post-zero-padded) kernel convolution with Sobel operators.
+Inputs:
+	pic = RGB image
+		type: struct RGB_image
+	norm = number to divide default Sobel operator values by
+Outputs:
+	grads = estimated gradients of input image
+		type: struct image
+*/
+struct image estimate_grad(struct RGB_image pic, float norm) {
+	// get Sobel operators:
+	struct sobel_operators sobel = init_sobel(norm);
+	// estimated gradients struct:
+	struct image grads;
+	// padding size for same convolution:
+	int pad = (SOBEL_SIZE-1) / 2;
+	
+	return grads;
 }
