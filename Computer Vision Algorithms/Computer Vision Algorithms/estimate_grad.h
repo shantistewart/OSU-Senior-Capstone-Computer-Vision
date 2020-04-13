@@ -23,7 +23,7 @@ Outputs:
 	sobel = horizontal and vertical sobel operator matrices
 		type: struct sobel_operators
 */
-struct sobel_operators init_sobel(void);
+struct sobel_operators init_sobel(float total_weight);
 
 
 
