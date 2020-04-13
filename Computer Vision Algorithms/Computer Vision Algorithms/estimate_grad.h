@@ -15,4 +15,15 @@
 
 
 
+/*
+Function Description: initializes horizontal and vertical Sobel operators.
+Inputs: none
+Outputs:
+	sobel = horizontal and vertical sobel operator matrices
+		type: struct sobel_operators
+*/
+struct sobel_operators init_sobel(void);
+
+
+
 #endif /* estimate_grad_h */

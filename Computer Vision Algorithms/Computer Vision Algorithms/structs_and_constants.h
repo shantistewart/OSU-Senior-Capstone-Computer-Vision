@@ -40,7 +40,7 @@ struct gaussian_kernel {
 };
 
 // Sobel operator matrices:
-struct sobel {
+struct sobel_operators {
 	// horizontal gradient Sobel kernel (for vertical edges):
 	float sobel_horiz[SOBEL_SIZE][SOBEL_SIZE];
 	// % vertical gradient Sobel kernel (for horizontal edges):
