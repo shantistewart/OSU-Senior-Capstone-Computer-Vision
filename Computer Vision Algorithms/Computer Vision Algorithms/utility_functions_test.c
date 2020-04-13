@@ -17,6 +17,14 @@ int main() {
 	// --------------------TESTING approx_norm() FUNCTION--------------------
 	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
 	
+	// test values:
+	float x1 = 2.5;
+	float x2 = -3.2;
+	
+	// call function:
+	float norm = approx_norm(x1, x2);
+	printf("Approximate L2 norm of vector [%f, %f]: %f\n\n\n", x1, x2, norm);
+	
 	
 	
 	// --------------------TESTING conv_sum_2D() FUNCTION--------------------
