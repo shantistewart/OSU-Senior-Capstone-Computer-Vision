@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING approx_norm() FUNCTION--------------------
 	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
@@ -116,4 +116,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+*/

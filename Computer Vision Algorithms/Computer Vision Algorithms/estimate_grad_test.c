@@ -12,7 +12,7 @@
 
 
 
-/*
+// /*
 int main() {
 	// --------------------TESTING init_sobel() FUNCTION--------------------
 	printf("\n----------TESTING init_sobel() FUNCTION----------\n\n");
@@ -42,4 +42,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-*/
+// */
