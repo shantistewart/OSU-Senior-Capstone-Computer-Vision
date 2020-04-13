@@ -86,7 +86,7 @@ struct RGB_image kernel_conv_2D(struct RGB_image pic, int N, float kernel[N][N])
 				// if in padded borders:
 				if ( i<pad || j<pad || i>NUM_ROWS-1+pad || j>NUM_COLS-1+pad ) {
 					// pad with zero:
-					pad_array[color][i][j] = 0;
+					pad_array[color][i][j] = 0.0;
 				}
 				else {
 					// copy value from un-padded array:

@@ -107,24 +107,53 @@ struct image estimate_grad(struct RGB_image pic, float norm) {
 	// estimated gradients struct:
 	struct image grads;
 	
-	/*
-	// convolve each channel of input array with horizontal Sobel operator:
-	for (int color=0; color<NUM_COLORS; color++) {
-		for (int i=0; i<NUM_ROWS; i++) {
-			for (int j=0; j<NUM_COLS; j++) {
-				// extract subarray from padded_pic:
-				for (int k=0; k<N; k++) {
-					for (int l=0; l<N; l++) {
-						subarray[k][l] = pad_array[color][i+k][j+l];
+	// subarray of size (SOBEL_SIZE, SOBEL_SIZE) of pic to use as input to conv_sum_2D():
+	float subarray[SOBEL_SIZE][SOBEL_SIZE];
+	// array to hold normalized gradient values for all color channels at each pixel:
+	float grad_norm[NUM_COLORS];
+	// gradient values:
+	float grad_horiz;
+	float grad_vert;
+	// max gradient value over all color channels:
+	float grad_max = 0.0;
+	
+	// convolve each channel of input array with horizontal and vertical Sobel operator:
+	for (int i=0; i<NUM_ROWS; i++) {
+		for (int j=0; j<NUM_COLS; j++) {
+			// if kernel matrix doesn't fit entirely in input image:
+			if ( i<pad || j<pad || i>NUM_ROWS-1-pad || j>NUM_COLS-1-pad ) {
+				// pad with zero:
+				grads.pixels[i][j] = 0.0;
+			}
+			// else estimate gradient:
+			else {
+				for (int color=0; color<NUM_COLORS; color++) {
+					// extract subarray from pic:
+					for (int k=i-pad; i<=i+pad; k++) {
+						for (int l=j-pad; l<=j+pad; l++) {
+							subarray[k-(i-pad)][l-(j-pad)] = pic.pixels[color][k][l];
+						}
+					}
+					// estimate horizontal gradient:
+					grad_horiz = conv_sum_2D(SOBEL_SIZE, SOBEL_SIZE, subarray, sobel.sobel_horiz);
+					// estimate vertical gradient:
+					grad_vert = conv_sum_2D(SOBEL_SIZE, SOBEL_SIZE, subarray, sobel.sobel_vert);
+					// approximate L2 norm of horizontal and vertical gradients:
+					grad_norm[color] = approx_norm(grad_horiz, grad_vert);
+				}
+				// take max gradient value over all color channels:
+				for (int color=0; color<NUM_COLORS; color++) {
+					if (grad_norm[color] > grad_max) {
+						grad_max = grad_norm[color];
 					}
 				}
-				conv_pic.pixels[color][i][j] = conv_sum_2D(N, N, subarray, kernel);
+				// store max gradient value:
+				grads.pixels[i][j] = grad_max;
+				// reset max gradient for next iteration:
+				grad_max = 0.0;
 			}
 		}
 	}
-	*/
-	
-	// convolve each channel of input array with vertical Sobel operator:
 	
 	return grads;
 }
