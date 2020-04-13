@@ -12,8 +12,13 @@
 
 
 
-/*
+// /*
 int main() {
+	// --------------------TESTING approx_norm() FUNCTION--------------------
+	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
+	
+	
+	
 	// --------------------TESTING conv_sum_2D() FUNCTION--------------------
 	printf("\n----------TESTING conv_sum_2D() FUNCTION----------\n\n");
 	
@@ -50,6 +55,7 @@ int main() {
 	// call function:
 	float conv_sum = conv_sum_2D(M, N, array1, array2);
 	printf("\nConvolution sum of array1 and array2: %f\n\n\n", conv_sum);
+	
 	
 	
 	// --------------------TESTING kernel_conv_2D() FUNCTION--------------------
@@ -102,4 +108,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-/*/
+// */

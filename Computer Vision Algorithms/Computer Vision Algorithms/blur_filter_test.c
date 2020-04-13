@@ -33,11 +33,11 @@ int main() {
 		printf("\n");
 	}
 	printf("\nSum of weights: %f\n", weight_sum);
-	
-	
+ 
 	printf("\n\n");
-	
-	
+ 
+ 
+ 
 	// --------------------TESTING blur_filter() FUNCTION--------------------
 	printf("\n----------TESTING blur_filter() FUNCTION----------\n\n");
 	
