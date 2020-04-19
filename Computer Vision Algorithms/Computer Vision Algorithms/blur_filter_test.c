@@ -32,9 +32,7 @@ int main() {
 		}
 		printf("\n");
 	}
-	printf("\nSum of weights: %f\n", weight_sum);
- 
-	printf("\n\n");
+	printf("\nSum of weights: %f\n\n\n", weight_sum);
  
  
  

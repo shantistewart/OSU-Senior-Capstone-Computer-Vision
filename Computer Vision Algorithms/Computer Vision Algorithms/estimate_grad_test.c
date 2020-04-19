@@ -65,6 +65,8 @@ int main() {
 		printf("\nNormalization incorrect: total weight = %f.\n", total_weight);
 	}
 	
+	printf("\n\n");
+	
 	
 	
 	// --------------------TESTING estimate_grad() FUNCTION--------------------
