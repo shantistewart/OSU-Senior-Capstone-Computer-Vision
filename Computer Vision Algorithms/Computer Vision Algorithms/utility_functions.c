@@ -12,6 +12,28 @@
 
 
 /*
+Function Description: determines maximum element of a 1D array.
+Inputs:
+	size = size of input array
+	array = input array
+Outputs:
+	max = maximum element of array
+*/
+float max(int size, float array[size]) {
+	// rolling max:
+	float max = array[0];
+	
+	for (int i=0; i<size; i++) {
+		if (array[i] > max) {
+			max = array[i];
+		}
+	}
+	
+	return max;
+}
+
+
+/*
 Function Description: approximates a L2 norm of a 2D vector.
 Inputs:
 	x1 = vector coordinate 1
