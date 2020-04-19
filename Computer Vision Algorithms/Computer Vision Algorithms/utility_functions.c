@@ -19,7 +19,7 @@ Inputs:
 Outputs:
 	max = maximum element of array
 */
-float max(int size, float array[size]) {
+float maximum(int size, float array[size]) {
 	// rolling max:
 	float max = array[0];
 	

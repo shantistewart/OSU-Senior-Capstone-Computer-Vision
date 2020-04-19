@@ -12,8 +12,28 @@
 
 
 
-/*
+// /*
 int main() {
+	// --------------------TESTING maximum() FUNCTION--------------------
+	printf("\n----------TESTING maximum() FUNCTION----------\n\n");
+	
+	// test array:
+	int size = 10;
+	float array_test[size];
+	
+	// fill and display array:
+	printf("Array:\n");
+	for (int i=0; i<size; i++) {
+		array_test[i] = 2.5*(i+1);
+		printf("%f  ", array_test[i]);
+	}
+	
+	// call function:
+	float max = maximum(size, array_test);
+	printf("\nMax of array: %f\n\n\n", max);
+	
+	
+	
 	// --------------------TESTING approx_norm() FUNCTION--------------------
 	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
 	
@@ -116,4 +136,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-*/
+// */
