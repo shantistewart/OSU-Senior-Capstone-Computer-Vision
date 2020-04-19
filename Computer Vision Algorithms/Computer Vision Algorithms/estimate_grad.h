@@ -18,12 +18,13 @@
 /*
 Function Description: initializes horizontal and vertical Sobel operators.
 Inputs:
-	norm = number to divide default Sobel operator values by
+	norm = "Boolean" to select whether to normalize Sobel operator values
+		if norm == 1: normalize values; else: don't normalize values
 Outputs:
 	sobel = horizontal and vertical sobel operator matrices
 		type: struct sobel_operators
 */
-struct sobel_operators init_sobel(float norm);
+struct sobel_operators init_sobel(int norm);
 
 
 /*

@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING maximum() FUNCTION--------------------
 	printf("\n----------TESTING maximum() FUNCTION----------\n\n");
@@ -136,4 +136,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+*/

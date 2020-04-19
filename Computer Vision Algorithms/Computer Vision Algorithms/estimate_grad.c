@@ -16,42 +16,52 @@
 /*
 Function Description: initializes horizontal and vertical Sobel operators.
 Inputs:
-	norm = number to divide default Sobel operator values by
+	norm = "Boolean" to select whether to normalize Sobel operator values
+		if norm == 1: normalize values; else: don't normalize values
 Outputs:
 	sobel = horizontal and vertical sobel operator matrices
 		type: struct sobel_operators
 */
-struct sobel_operators init_sobel(float norm) {
+struct sobel_operators init_sobel(int norm) {
 	// sobel_operators struct instance:
 	struct sobel_operators sobel;
 	// middle index:
 	int middle = SOBEL_SIZE / 2;
+	// running sum of weights:
+	float total_weight = 0.0;
 	
 	// initialize horizontal sobel operator:
 	for (int i=0; i<SOBEL_SIZE; i++) {
 		for (int j=0; j<SOBEL_SIZE; j++) {
 			// if middle column:
 			if (j == middle) {
-				sobel.sobel_horiz[i][j] = 0.0 / norm;
+				sobel.sobel_horiz[i][j] = 0.0;
 			}
 			// else if middle row:
 			else if (i == middle) {
 				// if left half:
 				if (j < middle) {
-					sobel.sobel_horiz[i][j] = -2.0 / norm;
+					sobel.sobel_horiz[i][j] = -2.0;
 				}
 				// else right half:
 				else {
-					sobel.sobel_horiz[i][j] = 2.0 / norm;
+					sobel.sobel_horiz[i][j] = 2.0;
 				}
 			}
 			// else if left half:
 			else if (j < middle) {
-				sobel.sobel_horiz[i][j] = -1.0 / norm;
+				sobel.sobel_horiz[i][j] = -1.0;
 			}
 			// else right half:
 			else {
-				sobel.sobel_horiz[i][j] = 1.0 / norm;
+				sobel.sobel_horiz[i][j] = 1.0;
+			}
+			// update total weight:
+			if (sobel.sobel_horiz[i][j] < 0.0) {
+				total_weight += -1*sobel.sobel_horiz[i][j];
+			}
+			else {
+				total_weight += sobel.sobel_horiz[i][j];
 			}
 		}
 	}
@@ -61,26 +71,36 @@ struct sobel_operators init_sobel(float norm) {
 		for (int j=0; j<SOBEL_SIZE; j++) {
 			// if middle row:
 			if (i == middle) {
-				sobel.sobel_vert[i][j] = 0.0 / norm;
+				sobel.sobel_vert[i][j] = 0.0;
 			}
 			// else if middle column:
 			else if (j == middle) {
 				// if bottom half:
 				if (i > middle) {
-					sobel.sobel_vert[i][j] = -2.0 / norm;
+					sobel.sobel_vert[i][j] = -2.0;
 				}
 				// else upper half:
 				else {
-					sobel.sobel_vert[i][j] = 2.0 / norm;
+					sobel.sobel_vert[i][j] = 2.0;
 				}
 			}
 			// else if bottom half:
 			else if (i > middle) {
-				sobel.sobel_vert[i][j] = -1.0 / norm;
+				sobel.sobel_vert[i][j] = -1.0;
 			}
 			// else upper half:
 			else {
-				sobel.sobel_vert[i][j] = 1.0 / norm;
+				sobel.sobel_vert[i][j] = 1.0;
+			}
+		}
+	}
+	
+	// normalize values:
+	if (norm==1) {
+		for (int i=0; i<SOBEL_SIZE; i++) {
+			for (int j=0; j<SOBEL_SIZE; j++) {
+				sobel.sobel_horiz[i][j] /= total_weight;
+				sobel.sobel_vert[i][j] /= total_weight;
 			}
 		}
 	}
@@ -114,8 +134,6 @@ struct image estimate_grad(struct RGB_image pic, float norm) {
 	// gradient values:
 	float grad_horiz;
 	float grad_vert;
-	// max gradient value over all color channels:
-	float grad_max = 0.0;
 	
 	// convolve each channel of input array with horizontal and vertical Sobel operator:
 	for (int i=0; i<NUM_ROWS; i++) {
@@ -129,7 +147,7 @@ struct image estimate_grad(struct RGB_image pic, float norm) {
 			else {
 				for (int color=0; color<NUM_COLORS; color++) {
 					// extract subarray from pic:
-					for (int k=i-pad; i<=i+pad; k++) {
+					for (int k=i-pad; k<=i+pad; k++) {
 						for (int l=j-pad; l<=j+pad; l++) {
 							subarray[k-(i-pad)][l-(j-pad)] = pic.pixels[color][k][l];
 						}
@@ -142,15 +160,7 @@ struct image estimate_grad(struct RGB_image pic, float norm) {
 					grad_norm[color] = approx_norm(grad_horiz, grad_vert);
 				}
 				// take max gradient value over all color channels:
-				for (int color=0; color<NUM_COLORS; color++) {
-					if (grad_norm[color] > grad_max) {
-						grad_max = grad_norm[color];
-					}
-				}
-				// store max gradient value:
-				grads.pixels[i][j] = grad_max;
-				// reset max gradient for next iteration:
-				grad_max = 0.0;
+				grads.pixels[i][j] = maximum(NUM_COLORS, grad_norm);
 			}
 		}
 	}
