@@ -81,10 +81,10 @@ int main() {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
 				if (j==2 && i!=0 && i!= NUM_ROWS-1) {
-					pic.pixels[color][i][j] = color+1;
+					pic.pixels[color][i][j] = -(NUM_COLORS - color+1);
 				}
 				else if (j==4 && i!=0 && i!= NUM_ROWS-1) {
-					pic.pixels[color][i][j] = 2*(color+1) + 1;
+					pic.pixels[color][i][j] = -(NUM_COLORS - 2*(color+1) + 1);
 				}
 				else {
 					pic.pixels[color][i][j] = 0.0;
@@ -120,4 +120,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+// */-
