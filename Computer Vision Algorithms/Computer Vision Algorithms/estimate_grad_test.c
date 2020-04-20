@@ -18,7 +18,7 @@ int main() {
 	printf("\n----------TESTING init_sobel() FUNCTION----------\n\n");
 	
 	// test normalization:
-	int norm = 1;
+	int norm = 0;
 	// running sum of weights:
 	float total_weight = 0.0;
 	
@@ -41,7 +41,7 @@ int main() {
 	}
 	// check that normalization is correct:
 	if (total_weight < 1.000 || total_weight > 1.001) {
-		printf("\nNormalization incorrect: total weight = %f.\n", total_weight);
+		printf("\nNot normalized: total weight = %f.\n", total_weight);
 	}
 	
 	// reset normalization:
@@ -62,7 +62,7 @@ int main() {
 	}
 	// check that normalization is correct:
 	if (total_weight < 1.000 || total_weight > 1.001) {
-		printf("\nNormalization incorrect: total weight = %f.\n", total_weight);
+		printf("\nNot normalized: total weight = %f.\n", total_weight);
 	}
 	
 	printf("\n\n");
@@ -72,22 +72,37 @@ int main() {
 	// --------------------TESTING estimate_grad() FUNCTION--------------------
 	printf("\n----------TESTING estimate_grad() FUNCTION----------\n\n");
 	
+	// test normalization:
+	norm = 0;
 	// test input image:
 	struct RGB_image pic;
-	// fill input image array and display:
+	// fill input image array (for NUM_ROWS = 7 and NUM_COLS = 7):
+	for (int color=0; color<NUM_COLORS; color++) {
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				if (j==2 && i!=0 && i!= NUM_ROWS-1) {
+					pic.pixels[color][i][j] = color+1;
+				}
+				else if (j==4 && i!=0 && i!= NUM_ROWS-1) {
+					pic.pixels[color][i][j] = 2*(color+1) + 1;
+				}
+				else {
+					pic.pixels[color][i][j] = 0.0;
+				}
+			}
+		}
+	}
+	// display input image:
 	printf("Input image array:\n\n");
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
-				pic.pixels[color][i][j] = (color+1)*(i*NUM_COLS + j + 1);
-				printf("%f  ", pic.pixels[color][i][j]);
+				printf("%d  ", (int)pic.pixels[color][i][j]);
 			}
 			printf("\n");
 		}
 		printf("\n");
 	}
-	// test normalization:
-	norm = 0;
 	
 	// call function:
 	struct image grads = estimate_grad(pic, norm);
@@ -96,7 +111,7 @@ int main() {
 	printf("\nEstimated gradients array:\n\n");
 	for (int i=0; i<NUM_ROWS; i++) {
 		for (int j=0; j<NUM_COLS; j++) {
-			printf("%f  ", grads.pixels[i][j]);
+			printf("%d  ", (int)grads.pixels[i][j]);
 		}
 		printf("\n");
 	}
