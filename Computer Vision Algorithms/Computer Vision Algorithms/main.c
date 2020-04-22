@@ -10,6 +10,7 @@
 #include <stdio.h>
 // include function files:
 #include "blur_filter.h"
+#include "estimate_grad.h"
 
 
 
