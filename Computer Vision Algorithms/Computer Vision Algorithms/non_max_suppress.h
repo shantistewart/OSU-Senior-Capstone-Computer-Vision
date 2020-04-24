@@ -19,11 +19,13 @@
 Function Description: performs horizontal non-maximal suppression on gradient image.
 Inputs:
 	grads = gradient image
-		type: struct image*
+		type: struct image
 	suppress_length = (half) horizontal "suppression" length
-Outputs: none
+Outputs:
+	suppress_grads = non-maximally suppressed gradient image
+		type: struct image
 */
-void non_max_suppress(struct image* grads, int suppress_length);
+struct image non_max_suppress(struct image grads, int suppress_length);
 
 
 
