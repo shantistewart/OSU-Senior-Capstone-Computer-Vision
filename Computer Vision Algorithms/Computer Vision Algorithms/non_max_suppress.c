@@ -9,3 +9,17 @@
 
 #include "non_max_suppress.h"
 #include <stdio.h>
+
+
+
+/*
+Function Description: performs horizontal non-maximal suppression on gradient image.
+Inputs:
+	grads = gradient image
+		type: struct image*
+	suppress_length = (half) horizontal "suppression" length
+Outputs: none
+*/
+void non_max_suppress(struct image grads, int suppress_length) {
+	
+}
