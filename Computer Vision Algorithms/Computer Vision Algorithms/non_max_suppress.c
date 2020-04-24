@@ -20,6 +20,7 @@ Inputs:
 	suppress_length = (half) horizontal "suppression" length
 Outputs: none
 */
-void non_max_suppress(struct image grads, int suppress_length) {
+void non_max_suppress(struct image* grads, int suppress_length) {
+	// perform horizontal non-maximal suppression:
 	
 }
