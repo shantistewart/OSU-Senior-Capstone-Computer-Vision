@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3609DBBC2453A05300ACB6AA /* non_max_suppress.c in Sources */ = {isa = PBXBuildFile; fileRef = 3609DBBB2453A05300ACB6AA /* non_max_suppress.c */; };
 		362ECC5D24396B5600E31FE4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 362ECC5C24396B5600E31FE4 /* main.c */; };
 		3632CC2A245000430047C57D /* hyst_thresh.c in Sources */ = {isa = PBXBuildFile; fileRef = 3632CC29245000430047C57D /* hyst_thresh.c */; };
 		3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3649C1EE2439B5A7006595A6 /* blur_filter.c */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3609DBBA2453A05300ACB6AA /* non_max_suppress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = non_max_suppress.h; sourceTree = "<group>"; };
+		3609DBBB2453A05300ACB6AA /* non_max_suppress.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = non_max_suppress.c; sourceTree = "<group>"; };
 		362ECC5924396B5600E31FE4 /* Computer Vision Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Computer Vision Algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		362ECC5C24396B5600E31FE4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3632CC28245000430047C57D /* hyst_thresh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hyst_thresh.h; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 				3699D316244419C30017ED38 /* estimate_grad.h */,
 				3699D317244419C30017ED38 /* estimate_grad.c */,
 				3699D319244421B20017ED38 /* estimate_grad_test.c */,
+				3609DBBA2453A05300ACB6AA /* non_max_suppress.h */,
+				3609DBBB2453A05300ACB6AA /* non_max_suppress.c */,
 				3632CC28245000430047C57D /* hyst_thresh.h */,
 				3632CC29245000430047C57D /* hyst_thresh.c */,
 				36F73BFE243A9CE000BA63F3 /* utility_functions.h */,
@@ -157,6 +162,7 @@
 				3632CC2A245000430047C57D /* hyst_thresh.c in Sources */,
 				3649C1F12439B734006595A6 /* blur_filter_test.c in Sources */,
 				3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */,
+				3609DBBC2453A05300ACB6AA /* non_max_suppress.c in Sources */,
 				362ECC5D24396B5600E31FE4 /* main.c in Sources */,
 				36F73C02243AA2E900BA63F3 /* utility_functions_test.c in Sources */,
 			);
