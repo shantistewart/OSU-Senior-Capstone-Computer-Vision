@@ -27,6 +27,14 @@ struct object_avg_colors estimate_avg_color(struct RGB_image pic, struct edge_li
 	// average colors of possible objects:
 	struct object_avg_colors object_colors;
 	
+	// iterate over MAX_EDGES-1 possible objects:
+	for (int e=0; e<MAX_EDGES-1; e++) {
+		// get left edge:
+		struct edge left_edge = edges.edge_array[e];
+		// get right edge:
+		struct edge right_edge = edges.edge_array[e+1];
+	}
+	
 	
 	return object_colors;
 }
