@@ -17,7 +17,7 @@
 // number of rows of image pixels:
 #define NUM_ROWS 3
 // number of columns of image pixels:
-#define NUM_COLS 12
+#define NUM_COLS 4
 // size of Gaussian kernel (must be odd!):
 #define KERNEL_SIZE 3
 // size of Sobel operators (must be odd!):
