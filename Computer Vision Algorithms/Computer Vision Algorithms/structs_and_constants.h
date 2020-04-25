@@ -15,9 +15,9 @@
 // number of color channels:
 #define NUM_COLORS 3
 // number of rows of image pixels:
-#define NUM_ROWS 7
+#define NUM_ROWS 3
 // number of columns of image pixels:
-#define NUM_COLS 7
+#define NUM_COLS 10
 // size of Gaussian kernel (must be odd!):
 #define KERNEL_SIZE 3
 // size of Sobel operators (must be odd!):
