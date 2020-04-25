@@ -20,7 +20,7 @@ Function Description: estimates average color (HSV) values of possible objects i
 Inputs:
 	pic = raw image
 		type: struct RGB_image
-	edges = list of edges in image
+	edges = list of edges in image, sorted from left to right
 		type: struct edge_list
 Outputs:
 	object_colors = average color (HSV) values of possible objects in an image

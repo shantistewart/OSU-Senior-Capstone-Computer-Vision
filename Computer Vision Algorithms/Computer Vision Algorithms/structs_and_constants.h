@@ -69,6 +69,12 @@ struct edge_list {
 	struct edge edge_array[MAX_EDGES];
 };
 
+// line in image:
+struct line {
+	float slope;
+	int intercept;
+};
+
 // average color (HSV) values for an object:
 struct avg_color {
 	// hue:
