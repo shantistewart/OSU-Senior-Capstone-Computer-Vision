@@ -52,9 +52,9 @@ struct sobel_operators {
 // vertex coordinates:
 struct vertex {
 	// pixel row number:
-	int x;
+	int row;
 	// pixel column number:
-	int y;
+	int col;
 };
 
 // 3-vertex edge:
@@ -75,8 +75,8 @@ struct line {
 	int intercept;
 };
 
-// average color (HSV) values for an object:
-struct avg_color {
+// HSV color values:
+struct color {
 	// hue:
 	float h;
 	// saturation:
@@ -87,7 +87,7 @@ struct avg_color {
 
 // array of average color (HSV) values for possible objects in an image:
 struct object_avg_colors {
-	struct avg_color avg_colors[MAX_EDGES-1];
+	struct color avg_colors[MAX_EDGES-1];
 };
 
 

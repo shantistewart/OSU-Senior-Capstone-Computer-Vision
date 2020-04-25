@@ -38,14 +38,44 @@ struct object_avg_colors estimate_avg_color(struct RGB_image pic, struct edge_li
 		// int top_limit = 2nd smallest pixel row number
 		// int bottom_limit = 2nd largest pixel row number
 		
+		// rolling sum of colors:
+		struct color color_sum;
+		color_sum.h = 0.0;
+		color_sum.s = 0.0;
+		color_sum.v = 0.0;
+		
 		// estimate average color (HSV) values of (possible) object:
 		// for (int row=top_limit; row<=bottom_limit; row++) {
-				// left limit line:
+				// estimate left limit line:
+				// if upper half of left edge:
+				// if (row <= left_edge.middle.row) {
+						// struct line left_line = approx_line(left_edge.top, left_edge.middle);
+				// }
+				// else lower half of left edge:
+				// else {
+						// struct line left_line = approx_line(left_edge.middle, left_edge.bottom);
+				// }
+				
+				// estimate right limit line:
+				// if upper half of right edge:
+				// if (row <= right_edge.middle.x) {
+						// struct line right_line = approx_line(right_edge.top, right_edge.middle);
+				// }
+				// else lower half of right edge:
+				// else {
+						// struct line right_line = approx_line(right_edge.middle, right_edge.bottom);
+				// }
 				
 				// left limit:
-				// int left = round(left_slope*row + left_intercept)
+				// int left = round(left_line.slope*row + left_line.intercept);
 				// right limit:
-				// int right = round(right_slope*row + right_intercept)
+				// int right = round(right_line.slope*row + right_line.intercept);
+				
+				// calculate sum of colors in row:
+				// for (int col=left; col<=right; col++) {
+						// color_sum.h = color_sum.h + pic[0][row][col];
+						// color_sum.s = color_sum.s + pic[1][row][col];
+						// color_sum.v = color_sum.v + pic[2][row][col];
 	}
 	
 	
