@@ -21,12 +21,14 @@ int main() {
 	int suppress_length = 2;
 	// test input gradient image:
 	struct image grads;
+	// test mod number:
+	int mod = 5;
 	
 	// fill and display input gradient image array:
 	printf("Input gradient image array:\n\n");
 	for (int i=0; i<NUM_ROWS; i++) {
 		for (int j=0; j<NUM_COLS; j++) {
-			grads.pixels[i][j] = i*NUM_COLS + j + 1;
+			grads.pixels[i][j] = (i*NUM_COLS + j + 1) % mod;
 			printf("%d  ", (int)grads.pixels[i][j]);
 		}
 		printf("\n");
