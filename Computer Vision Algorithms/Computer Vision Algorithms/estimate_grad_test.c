@@ -76,7 +76,8 @@ int main() {
 	norm = 1;
 	// test input image:
 	struct RGB_image pic;
-	// fill input image array (for NUM_ROWS = 7 and NUM_COLS = 7):
+	// fill and display input image array (for NUM_ROWS = 7 and NUM_COLS = 7):
+	printf("Input image array:\n\n");
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
@@ -89,14 +90,6 @@ int main() {
 				else {
 					pic.pixels[color][i][j] = 0.0;
 				}
-			}
-		}
-	}
-	// display input image:
-	printf("Input image array:\n\n");
-	for (int color=0; color<NUM_COLORS; color++) {
-		for (int i=0; i<NUM_ROWS; i++) {
-			for (int j=0; j<NUM_COLS; j++) {
 				printf("%d  ", (int)pic.pixels[color][i][j]);
 			}
 			printf("\n");
