@@ -69,6 +69,16 @@ struct edge_list {
 	struct edge edges[MAX_EDGES];
 };
 
+// average color (HSV) values for an object:
+struct avg_color {
+	// hue:
+	float h;
+	// saturation:
+	float s;
+	// value:
+	float v;
+};
+
 
 
 #endif /* structs_and_constants_h */
