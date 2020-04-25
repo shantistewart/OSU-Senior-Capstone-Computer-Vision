@@ -49,6 +49,26 @@ struct sobel_operators {
 	float sobel_vert[SOBEL_SIZE][SOBEL_SIZE];
 };
 
+// vertex coordinates:
+struct vertex {
+	// pixel row number:
+	int x;
+	// pixel column number:
+	int y;
+};
+
+// 3-vertex edge:
+struct edge {
+	struct vertex top;
+	struct vertex middle;
+	struct vertex bottom;
+};
+
+// list of edges (for an image):
+struct edge_list {
+	struct edge edges[MAX_EDGES];
+};
+
 
 
 #endif /* structs_and_constants_h */
