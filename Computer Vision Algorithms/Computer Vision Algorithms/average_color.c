@@ -38,6 +38,8 @@ struct object_avg_colors estimate_avg_color(struct RGB_image pic, struct edge_li
 		// int top_limit = 2nd smallest pixel row number
 		// int bottom_limit = 2nd largest pixel row number
 		
+		// rolling sum of number of pixels in (possible ) object:
+		int num_pixels = 0;
 		// rolling sum of colors:
 		struct color color_sum;
 		color_sum.h = 0.0;
@@ -76,6 +78,12 @@ struct object_avg_colors estimate_avg_color(struct RGB_image pic, struct edge_li
 						// color_sum.h = color_sum.h + pic[0][row][col];
 						// color_sum.s = color_sum.s + pic[1][row][col];
 						// color_sum.v = color_sum.v + pic[2][row][col];
+				// }
+		
+		// calculate average color values:
+		object_colors.avg_colors[e].h = color_sum.h / num_pixels;
+		object_colors.avg_colors[e].s = color_sum.s / num_pixels;
+		object_colors.avg_colors[e].v = color_sum.v / num_pixels;
 	}
 	
 	
