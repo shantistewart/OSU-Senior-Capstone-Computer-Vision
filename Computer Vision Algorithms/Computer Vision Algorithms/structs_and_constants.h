@@ -22,6 +22,8 @@
 #define KERNEL_SIZE 3
 // size of Sobel operators (must be odd!):
 #define SOBEL_SIZE 3
+// max number of edges in an image:
+#define MAX_EDGES 10
 
 
 // RGB image pixel values:
