@@ -91,6 +91,14 @@ struct object_avg_colors {
 	struct color avg_colors[MAX_EDGES-1];
 };
 
+// argmax struct to hold max value and coordinates:
+struct arg_max {
+	// max value:
+	float max;
+	// coordinates of max value:
+	struct vertex arg;
+};
+
 
 
 #endif /* structs_and_constants_h */
