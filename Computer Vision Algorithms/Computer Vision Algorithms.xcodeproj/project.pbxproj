@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3609DBBC2453A05300ACB6AA /* non_max_suppress.c in Sources */ = {isa = PBXBuildFile; fileRef = 3609DBBB2453A05300ACB6AA /* non_max_suppress.c */; };
+		362843DC2455266A00E3C75B /* find_edges.c in Sources */ = {isa = PBXBuildFile; fileRef = 362843DB2455266A00E3C75B /* find_edges.c */; };
 		362ECC5D24396B5600E31FE4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 362ECC5C24396B5600E31FE4 /* main.c */; };
 		3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3649C1EE2439B5A7006595A6 /* blur_filter.c */; };
 		364DF5372454CAAB00AF61D9 /* average_color.c in Sources */ = {isa = PBXBuildFile; fileRef = 364DF5362454CAAB00AF61D9 /* average_color.c */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		3609DBBA2453A05300ACB6AA /* non_max_suppress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = non_max_suppress.h; sourceTree = "<group>"; };
 		3609DBBB2453A05300ACB6AA /* non_max_suppress.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = non_max_suppress.c; sourceTree = "<group>"; };
+		362843DA2455266A00E3C75B /* find_edges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = find_edges.h; sourceTree = "<group>"; };
+		362843DB2455266A00E3C75B /* find_edges.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = find_edges.c; sourceTree = "<group>"; };
 		362ECC5924396B5600E31FE4 /* Computer Vision Algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Computer Vision Algorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		362ECC5C24396B5600E31FE4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		3649C1ED2439B5A7006595A6 /* blur_filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blur_filter.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				3699D317244419C30017ED38 /* estimate_grad.c */,
 				3609DBBA2453A05300ACB6AA /* non_max_suppress.h */,
 				3609DBBB2453A05300ACB6AA /* non_max_suppress.c */,
+				362843DA2455266A00E3C75B /* find_edges.h */,
+				362843DB2455266A00E3C75B /* find_edges.c */,
 				364DF5352454CAAB00AF61D9 /* average_color.h */,
 				364DF5362454CAAB00AF61D9 /* average_color.c */,
 				36F73BFE243A9CE000BA63F3 /* utility_functions.h */,
@@ -169,6 +174,7 @@
 			files = (
 				36F73C00243A9CE000BA63F3 /* utility_functions.c in Sources */,
 				3699D318244419C30017ED38 /* estimate_grad.c in Sources */,
+				362843DC2455266A00E3C75B /* find_edges.c in Sources */,
 				365998622454C5A00030AC40 /* non_max_suppress_test.c in Sources */,
 				365998602454C52C0030AC40 /* estimate_grad_test.c in Sources */,
 				3649C1EF2439B5A7006595A6 /* blur_filter.c in Sources */,
