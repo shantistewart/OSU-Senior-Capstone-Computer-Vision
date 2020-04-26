@@ -55,6 +55,24 @@ float maximum(int size, float array[size]) {
 
 
 /*
+Function Description: determines maximum element of a 2D array and its coordinates.
+Inputs:
+	M = number of rows of array
+	N = number of columns of array
+	array = input array
+Outputs:
+	max_elem = maximum value and its coordinates
+		type: struct arg_max
+*/
+struct arg_max arg_maximum(int M, int N, float array[M][N]) {
+	// struct to hold max value and its coordinates:
+	struct arg_max max_elem;
+	
+	return max_elem;
+}
+
+
+/*
 Function Description: calculate the convolution sum of 2 2D arrays evaluated when the arrays are lined up.
 Inputs:
 	M = number of rows of arrays
