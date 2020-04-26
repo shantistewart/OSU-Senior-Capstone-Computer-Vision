@@ -32,18 +32,44 @@ int main() {
 	
 	// test array:
 	int size = 10;
-	float array_test[size];
+	float array_1D[size];
 	
 	// fill and display array:
 	printf("Array:\n");
 	for (int i=0; i<size; i++) {
-		array_test[i] = 2.5*(i+1);
-		printf("%f  ", array_test[i]);
+		array_1D[i] = 2.5*(i+1);
+		printf("%f  ", array_1D[i]);
 	}
 	
 	// call function:
-	float max = maximum(size, array_test);
+	float max = maximum(size, array_1D);
 	printf("\nMax of array: %f\n\n\n", max);
+	
+	
+	
+	// --------------------TESTING arg_maximum() FUNCTION--------------------
+	printf("\n----------TESTING arg_maximum() FUNCTION----------\n\n");
+	
+	// test array:
+	int M = 5;
+	int N = 8;
+	float array_2D[M][N];
+	// test mod number:
+	int mod = 5;
+	
+	// fill and display array:
+	printf("Array:\n");
+	for (int i=0; i<M; i++) {
+		for (int j=0; j<N; j++) {
+			array_2D[i][j] = (i*N + j + 1) % (i+4) + 0.5;
+			printf("%f  ", array_2D[i][j]);
+		}
+		printf("\n");
+	}
+	
+	// call function:
+	struct arg_max max_elem = arg_maximum(M, N, array_2D);
+	printf("\nMax element of array: %f at (%d, %d)\n\n\n", max_elem.max, max_elem.coord.row, max_elem.coord.col);
 	
 	
 	
@@ -51,8 +77,8 @@ int main() {
 	printf("\n----------TESTING conv_sum_2D() FUNCTION----------\n\n");
 	
 	// test arrays:
-	int M = 2;
-	int N = 2;
+	M = 2;
+	N = 2;
 	float array1[M][N];
 	float array2[M][N];
 	
