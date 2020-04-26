@@ -15,4 +15,17 @@
 
 
 
+/*
+Function Description: finds long vertical edges with hysteresis thresholding for edge continuity.
+Inputs:
+	grads = gradient image
+		type: struct image
+	vert_scan_length = vertical "scanning" length for edge continuity
+	horiz_scan_length = horizontal "scanning" length for edge continuity
+	min_edge_length = minimum edge length to keep
+Outputs:
+*/
+
+
+
 #endif /* find_edges_h */
