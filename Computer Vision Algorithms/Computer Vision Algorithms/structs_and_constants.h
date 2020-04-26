@@ -66,6 +66,7 @@ struct edge {
 
 // array of edges (for an image):
 struct edge_list {
+	int num_edges;
 	struct edge edge_array[MAX_EDGES];
 };
 

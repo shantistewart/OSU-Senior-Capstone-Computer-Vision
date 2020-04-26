@@ -110,16 +110,17 @@ struct sobel_operators init_sobel(int norm) {
 
 
 /*
-Function Description: estimates gradients of input image using same (post-zero-padded) kernel convolution with Sobel operators.
+Function Description: estimates gradients of input image using kernel convolution with Sobel operators.
 Inputs:
 	pic = RGB image
 		type: struct RGB_image
-	norm = number to divide default Sobel operator values by
+	norm = "Boolean" to select whether to normalize Sobel operator values
+		if norm == 1: normalize values; else: don't normalize values
 Outputs:
 	grads = estimated gradients of input image
 		type: struct image
 */
-struct image estimate_grad(struct RGB_image pic, float norm) {
+struct image estimate_grad(struct RGB_image pic, int norm) {
 	// get Sobel operators:
 	struct sobel_operators sobel = init_sobel(norm);
 	// padding size for same convolution:

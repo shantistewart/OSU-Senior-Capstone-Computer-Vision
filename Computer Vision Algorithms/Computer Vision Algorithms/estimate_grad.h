@@ -32,12 +32,13 @@ Function Description: estimates gradients of input image using kernel convolutio
 Inputs:
 	pic = RGB image
 		type: struct RGB_image
-	norm = number to divide default Sobel operator values by
+	norm = "Boolean" to select whether to normalize Sobel operator values
+		if norm == 1: normalize values; else: don't normalize values
 Outputs:
 	grads = estimated gradients of input image
 		type: struct image
 */
-struct image estimate_grad(struct RGB_image pic, float norm);
+struct image estimate_grad(struct RGB_image pic, int norm);
 
 
 

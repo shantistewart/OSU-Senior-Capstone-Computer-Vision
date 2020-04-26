@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING non_max_suppress() FUNCTION--------------------
 	printf("\n----------TESTING non_max_suppress() FUNCTION----------\n\n");
@@ -50,4 +50,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+*/
