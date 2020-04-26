@@ -30,9 +30,21 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 	// edges:
 	struct edge_list edges;
 	
+	// top (start) vertex:
+	struct vertex top;
+	// bottom (stop) vertex:
+	struct vertex bottom;
+	// pixel that is farthest to the left:
+	struct vertex most_left;
+	// pixel that is farthest to the right:
+	struct vertex most_right;
+	
 	for (int i=0; i<NUM_ROWS; i++) {
 		for (int j=0; j<NUM_COLS; j++) {
-			
+			// start of an edge must be above high threshold:
+			if (grads.pixels[i][j] >= high_thresh) {
+				// record top (start) vertex:
+			}
 		}
 	}
 	
