@@ -12,6 +12,27 @@
 
 
 /*
+Function Description: approximates a L2 norm of a 2D vector.
+Inputs:
+	x1 = vector coordinate 1
+	x2 = vector coordinate 2
+Outputs: approximate L2 norm of input vector
+Approximation: ||x|| = |x1| + |x2|
+*/
+float approx_norm(float x1, float x2) {
+	// make values positive if not already:
+	if (x1 < 0) {
+		x1 = -1 * x1;
+	}
+	if (x2 < 0) {
+		x2 = -1 * x2;
+	}
+	
+	return x1 + x2;
+}
+
+
+/*
 Function Description: determines maximum element of a 1D array.
 Inputs:
 	size = size of input array
@@ -30,27 +51,6 @@ float maximum(int size, float array[size]) {
 	}
 	
 	return max;
-}
-
-
-/*
-Function Description: approximates a L2 norm of a 2D vector.
-Inputs:
-	x1 = vector coordinate 1
-	x2 = vector coordinate 2
-Outputs: approximate L2 norm of input vector
-Approximation: ||x|| = |x1| + |x2|
-*/
-float approx_norm(float x1, float x2) {
-	// make values positive if not already:
-	if (x1 < 0) {
-		x1 = -1 * x1;
-	}
-	if (x2 < 0) {
-		x2 = -1 * x2;
-	}
-	
-	return x1 + x2;
 }
 
 

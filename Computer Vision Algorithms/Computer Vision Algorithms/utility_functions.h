@@ -16,17 +16,6 @@
 
 
 /*
-Function Description: determines maximum element of a 1D array.
-Inputs:
-	size = size of input array
-	array = input array
-Outputs:
-	max = maximum element of array
-*/
-float maximum(int size, float array[size]);
-
-
-/*
 Function Description: approximates a L2 norm of a 2D vector.
 Inputs:
 	x1 = vector coordinate 1
@@ -35,6 +24,17 @@ Outputs: approximate L2 norm of input vector
 Approximation: ||x|| = |x1| + |x2|
 */
 float approx_norm(float x1, float x2);
+
+
+/*
+Function Description: determines maximum element of a 1D array.
+Inputs:
+	size = size of input array
+	array = input array
+Outputs:
+	max = maximum element of array
+*/
+float maximum(int size, float array[size]);
 
 
 /*
