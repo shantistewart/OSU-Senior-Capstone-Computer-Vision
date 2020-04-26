@@ -20,8 +20,8 @@ Function Description: finds long vertical edges with hysteresis thresholding for
 Inputs:
 	grads = gradient image
 		type: struct image
-	low_thresh = lower gradient value threshold
-	high_thresh = higher gradient value threshold
+	low_thresh = lower gradient value threshold (0-255 pixel intensity)
+	high_thresh = higher gradient value threshold (0-255 pixel intensity)
 	vert_scan_length = vertical "scanning" length for edge continuity
 	horiz_scan_length = horizontal "scanning" length for edge continuity
 	min_edge_length = minimum edge length to keep
