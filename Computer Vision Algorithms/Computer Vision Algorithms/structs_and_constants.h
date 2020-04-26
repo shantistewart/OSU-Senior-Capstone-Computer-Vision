@@ -96,7 +96,7 @@ struct arg_max {
 	// max value:
 	float max;
 	// coordinates of max value:
-	struct vertex arg;
+	struct vertex coord;
 };
 
 

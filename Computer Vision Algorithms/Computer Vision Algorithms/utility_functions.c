@@ -67,6 +67,19 @@ Outputs:
 struct arg_max arg_maximum(int M, int N, float array[M][N]) {
 	// struct to hold max value and its coordinates:
 	struct arg_max max_elem;
+	max_elem.max = array[0][0];
+	max_elem.coord.row = 0;
+	max_elem.coord.col = 0;
+	
+	for (int i=0; i<M; i++) {
+		for (int j=0; j<N; j++) {
+			if (array[i][j] > max_elem.max) {
+				max_elem.max = array[i][j];
+				max_elem.coord.row = i;
+				max_elem.coord.col = j;
+			}
+		}
+	}
 	
 	return max_elem;
 }
