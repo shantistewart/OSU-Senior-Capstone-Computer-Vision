@@ -38,12 +38,27 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 	struct vertex most_left;
 	// pixel that is farthest to the right:
 	struct vertex most_right;
+	// current pixel coordinates:
+	struct vertex current_pixel;
 	
+	// search over entire image:
 	for (int i=0; i<NUM_ROWS; i++) {
 		for (int j=0; j<NUM_COLS; j++) {
 			// start of an edge must be above high threshold:
 			if (grads.pixels[i][j] >= high_thresh) {
 				// record top (start) vertex:
+				top.row = i;
+				top.col = j;
+				// initialize farthest left and and right vertices:
+				most_left = top;
+				most_right = top;
+				
+				// starting pixel:
+				current_pixel = top;
+				// Bool for edge continuation:
+				int connect = 1;
+				
+				// travel down (or down-left or down-right) edge:
 			}
 		}
 	}
