@@ -14,6 +14,19 @@
 
 // /*
 int main() {
+	// --------------------TESTING approx_norm() FUNCTION--------------------
+	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
+	
+	// test values:
+	float x1 = 2.5;
+	float x2 = -3.2;
+	
+	// call function:
+	float norm = approx_norm(x1, x2);
+	printf("Approximate L2 norm of vector [%f, %f]: %f\n\n\n", x1, x2, norm);
+	
+	
+	
 	// --------------------TESTING maximum() FUNCTION--------------------
 	printf("\n----------TESTING maximum() FUNCTION----------\n\n");
 	
@@ -31,19 +44,6 @@ int main() {
 	// call function:
 	float max = maximum(size, array_test);
 	printf("\nMax of array: %f\n\n\n", max);
-	
-	
-	
-	// --------------------TESTING approx_norm() FUNCTION--------------------
-	printf("\n----------TESTING approx_norm() FUNCTION----------\n\n");
-	
-	// test values:
-	float x1 = 2.5;
-	float x2 = -3.2;
-	
-	// call function:
-	float norm = approx_norm(x1, x2);
-	printf("Approximate L2 norm of vector [%f, %f]: %f\n\n\n", x1, x2, norm);
 	
 	
 	
