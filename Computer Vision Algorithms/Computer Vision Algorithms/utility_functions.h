@@ -16,14 +16,14 @@
 
 
 /*
-Function Description: approximates a L2 norm of a 2D vector.
+Function Description: calculates the L1-norm of a 2D vector.
 Inputs:
 	x1 = vector coordinate 1
 	x2 = vector coordinate 2
-Outputs: approximate L2 norm of input vector
-Approximation: ||x|| = |x1| + |x2|
+Outputs: L1-norm of input vector
+L1-norm: ||x|| = |x1| + |x2|
 */
-float approx_norm(float x1, float x2);
+float L1_norm(float x1, float x2);
 
 
 /*
