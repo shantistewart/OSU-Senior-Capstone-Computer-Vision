@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING L1_norm() FUNCTION--------------------
 	printf("\n----------TESTING L1_norm() FUNCTION----------\n\n");
@@ -162,4 +162,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+*/
