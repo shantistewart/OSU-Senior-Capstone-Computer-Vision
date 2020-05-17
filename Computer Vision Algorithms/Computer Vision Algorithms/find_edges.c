@@ -27,7 +27,7 @@ Outputs:
 		type: struct edge_list
 */
 struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh, int vert_scan_length, int horiz_scan_length, int min_edge_length) {
-	// edges:
+	// array of edges:
 	struct edge_list edges;
 	
 	// top (start) vertex:
@@ -53,12 +53,22 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				most_left = top;
 				most_right = top;
 				
-				// starting pixel:
-				current_pixel = top;
 				// Bool for edge continuation:
 				int connect = 1;
-				
-				// travel down (or down-left or down-right) edge:
+				// starting pixel:
+				current_pixel = top;
+				// travel down (or down-left or down-right) potential edge:
+				while (connect == 1 && current_pixel.col >= 0 && current_pixel.col < NUM_COLS) {
+					// keep rolling maximums of farthest left and right vertices:
+					if (current_pixel.col < most_left.col) {
+						most_left = current_pixel;
+					}
+					if (current_pixel.col > most_right.col) {
+						most_right = current_pixel;
+					}
+					
+					// scan down edge, using hysteresis thresholding for edge continuation:
+				}
 			}
 		}
 	}

@@ -70,6 +70,14 @@ struct edge_list {
 	struct edge edge_array[MAX_EDGES];
 };
 
+// argmax struct to hold max value and coordinates:
+struct arg_max {
+	// max value:
+	float max;
+	// coordinates of max value:
+	struct vertex coord;
+};
+
 // line in image:
 struct line {
 	float slope;
@@ -89,14 +97,6 @@ struct color {
 // array of average color (HSV) values for possible objects in an image:
 struct object_avg_colors {
 	struct color avg_colors[MAX_EDGES-1];
-};
-
-// argmax struct to hold max value and coordinates:
-struct arg_max {
-	// max value:
-	float max;
-	// coordinates of max value:
-	struct vertex coord;
 };
 
 
