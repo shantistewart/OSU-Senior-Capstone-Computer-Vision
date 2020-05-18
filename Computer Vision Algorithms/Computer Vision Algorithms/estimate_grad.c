@@ -158,7 +158,7 @@ struct image estimate_grad(struct RGB_image pic, int norm) {
 					// estimate vertical gradient:
 					grad_vert = conv_sum_2D(SOBEL_SIZE, SOBEL_SIZE, subarray, sobel.sobel_vert);
 					// calculate L1-norm of horizontal and vertical gradients:
-					grad_norm[color] = L1_norm(grad_horiz, grad_vert);
+					grad_norm[color] = L1_norm_float(grad_horiz, grad_vert);
 				}
 				// take max gradient value over all color channels:
 				grads.pixels[i][j] = maximum(NUM_COLORS, grad_norm);

@@ -13,14 +13,34 @@
 
 
 /*
-Function Description: calculates the L1-norm of a 2D vector.
+Function Description: calculates the L1-norm of a 2D vector of floats.
 Inputs:
 	x1 = vector coordinate 1
 	x2 = vector coordinate 2
 Outputs: L1-norm of input vector
 L1-norm: ||x|| = |x1| + |x2|
 */
-float L1_norm(float x1, float x2) {
+float L1_norm_float(float x1, float x2) {
+	// make values positive if not already:
+	if (x1 < 0) {
+		x1 = -1 * x1;
+	}
+	if (x2 < 0) {
+		x2 = -1 * x2;
+	}
+	
+	return x1 + x2;
+}
+
+/*
+Function Description: calculates the L1-norm of a 2D vector of ints.
+Inputs:
+	x1 = vector coordinate 1
+	x2 = vector coordinate 2
+Outputs: L1-norm of input vector
+L1-norm: ||x|| = |x1| + |x2|
+*/
+int L1_norm_int(int x1, int x2) {
 	// make values positive if not already:
 	if (x1 < 0) {
 		x1 = -1 * x1;

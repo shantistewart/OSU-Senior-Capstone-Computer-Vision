@@ -22,7 +22,7 @@ Inputs:
 	high_thresh = higher gradient value threshold (0-255)
 	vert_scan_length = vertical "scanning" length for edge continuity
 	horiz_scan_length = half horizontal "scanning" length for edge continuity
-	min_edge_length = minimum edge length to keep
+	min_edge_length = minimum edge "length" to keep
 Outputs:
 	edges = list of edges in image, unsorted
 		type: struct edge_list
@@ -91,7 +91,10 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				// record bottom (stop) vertex:
 				bottom = current_pixel;
 				
-				// save edge if long enough:
+				// save edge if its L1-norm is large enough:
+				if (L1_norm_int(top.row - bottom.row, top.col - bottom.col) >= min_edge_length) {
+					
+				}
 			}
 		}
 	}
