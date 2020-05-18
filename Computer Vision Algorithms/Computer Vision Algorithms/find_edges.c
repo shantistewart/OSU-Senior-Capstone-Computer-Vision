@@ -9,6 +9,7 @@
 
 #include "find_edges.h"
 #include <stdio.h>
+#include "structs_and_constants.h"
 #include "utility_functions.h"
 
 
@@ -121,10 +122,14 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 					edges.edge_array[edges.num_edges] = long_edge;
 					edges.num_edges++;
 				}
+				
+				// if max number of edges is reached return from function
+				if (edges.num_edges == MAX_EDGES) {
+					return edges;
+				}
 			}
 		}
 	}
-	
 	
 	return edges;
 }
