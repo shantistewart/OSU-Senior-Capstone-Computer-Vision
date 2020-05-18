@@ -27,9 +27,9 @@ struct image non_max_suppress(struct image grads, int suppress_length) {
 	// non-maximally suppressed gradient image:
 	struct image suppress_grads;
 	// full suppression range subarray (size: 2*suppress_length+1)
-	float full_suppress_subarray[2*suppress_length+1];
+	float full_suppress_subarray[2*suppress_length + 1];
 	// half suppression range subarray (size: suppress_length+1)
-	float half_suppress_subarray[suppress_length+1];
+	float half_suppress_subarray[suppress_length + 1];
 	
 	// perform horizontal non-maximal suppression:
 	for (int i=0; i<NUM_ROWS; i++) {

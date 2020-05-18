@@ -9,6 +9,7 @@
 
 #include "find_edges.h"
 #include <stdio.h>
+#include "utility_functions.h"
 
 
 
@@ -20,7 +21,7 @@ Inputs:
 	low_thresh = lower gradient value threshold (0-255)
 	high_thresh = higher gradient value threshold (0-255)
 	vert_scan_length = vertical "scanning" length for edge continuity
-	horiz_scan_length = horizontal "scanning" length for edge continuity
+	horiz_scan_length = half horizontal "scanning" length for edge continuity
 	min_edge_length = minimum edge length to keep
 Outputs:
 	edges = list of edges in image, unsorted
@@ -40,6 +41,8 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 	struct vertex most_right;
 	// current pixel coordinates:
 	struct vertex current_pixel;
+	// subarray for edge scanning:
+	float subarray[vert_scan_length][2*horiz_scan_length + 1];
 	
 	// search over entire image:
 	for (int i=0; i<NUM_ROWS; i++) {
@@ -58,7 +61,7 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				// starting pixel:
 				current_pixel = top;
 				// travel down (or down-left or down-right) potential edge:
-				while (connect == 1 && current_pixel.col >= 0 && current_pixel.col < NUM_COLS) {
+				while(connect == 1 && current_pixel.row < NUM_ROWS-vert_scan_length && current_pixel.col >= horiz_scan_length && current_pixel.col < NUM_COLS-horiz_scan_length) {
 					// keep rolling maximums of farthest left and right vertices:
 					if (current_pixel.col < most_left.col) {
 						most_left = current_pixel;
@@ -67,8 +70,28 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 						most_right = current_pixel;
 					}
 					
-					// scan down edge, using hysteresis thresholding for edge continuation:
+					// extract subarray to scan down edge:
+					for (int k = 0; k < vert_scan_length; k++) {
+						for (int l = 0; l < 2*horiz_scan_length+1; l++) {
+							subarray[k][l] = grads.pixels[current_pixel.row + 1 + k][current_pixel.col - horiz_scan_length + l];
+						}
+					}
+					// take max element in scan subarray:
+					struct arg_max max_elem = arg_maximum(vert_scan_length, 2*horiz_scan_length+1, subarray);
+					// continue edge if above low threshold:
+					if (max_elem.max >= low_thresh) {
+						// move to max pixel:
+						current_pixel = max_elem.coord;
+					}
+					// else end edge:
+					else {
+						connect = 0;
+					}
 				}
+				// record bottom (stop) vertex:
+				bottom = current_pixel;
+				
+				// save edge if long enough:
 			}
 		}
 	}
