@@ -16,6 +16,23 @@
 
 
 /*
+Function Description: determines the absolute value of a float.
+Inputs:
+	x = float value
+Outputs: absolute value of x
+*/
+float abs_float(float x);
+
+/*
+Function Description: determines the absolute value of an int.
+Inputs:
+	x = int value
+Outputs: absolute value of x
+*/
+int abs_int(int x);
+
+
+/*
 Function Description: calculates the L1-norm of a 2D vector of floats.
 Inputs:
 	x1 = vector coordinate 1

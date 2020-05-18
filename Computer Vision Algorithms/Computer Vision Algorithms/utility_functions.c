@@ -13,6 +13,33 @@
 
 
 /*
+Function Description: determines the absolute value of a float.
+Inputs:
+	x = float value
+Outputs: absolute value of x
+*/
+float abs_float(float x) {
+	if (x < 0) {
+		x = -1 * x;
+	}
+	return x;
+}
+
+/*
+Function Description: determines the absolute value of an int.
+Inputs:
+	x = int value
+Outputs: absolute value of x
+*/
+int abs_int(int x) {
+	if (x < 0) {
+		x = -1 * x;
+	}
+	return x;
+}
+
+
+/*
 Function Description: calculates the L1-norm of a 2D vector of floats.
 Inputs:
 	x1 = vector coordinate 1
@@ -21,15 +48,7 @@ Outputs: L1-norm of input vector
 L1-norm: ||x|| = |x1| + |x2|
 */
 float L1_norm_float(float x1, float x2) {
-	// make values positive if not already:
-	if (x1 < 0) {
-		x1 = -1 * x1;
-	}
-	if (x2 < 0) {
-		x2 = -1 * x2;
-	}
-	
-	return x1 + x2;
+	return abs_float(x1) + abs_float(x2);
 }
 
 /*
@@ -41,15 +60,7 @@ Outputs: L1-norm of input vector
 L1-norm: ||x|| = |x1| + |x2|
 */
 int L1_norm_int(int x1, int x2) {
-	// make values positive if not already:
-	if (x1 < 0) {
-		x1 = -1 * x1;
-	}
-	if (x2 < 0) {
-		x2 = -1 * x2;
-	}
-	
-	return x1 + x2;
+	return abs_int(x1) + abs_int(x2);
 }
 
 
