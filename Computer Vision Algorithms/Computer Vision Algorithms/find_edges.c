@@ -31,17 +31,21 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 	// array of edges:
 	struct edge_list edges;
 	edges.num_edges = 0;
+	// edge to add to array of edges:
+	struct edge long_edge;
 	
-	// top (start) vertex:
-	struct vertex top;
-	// bottom (stop) vertex:
-	struct vertex bottom;
+	// start (top) vertex:
+	struct vertex start;
+	// stop (bottom) vertex:
+	struct vertex stop;
+	// corner (middle) vertex:
+	struct vertex corner;
 	// pixel that is farthest to the left:
 	struct vertex most_left;
 	// pixel that is farthest to the right:
 	struct vertex most_right;
-	// average of top and bottom vertices:
-	struct vertex top_bottom_avg;
+	// average of stop and start vertices:
+	struct vertex avg;
 	// current pixel coordinates:
 	struct vertex current_pixel;
 	// subarray for edge scanning:
@@ -52,17 +56,17 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 		for (int j=0; j<NUM_COLS; j++) {
 			// start of an edge must be above high threshold:
 			if (grads.pixels[i][j] >= high_thresh) {
-				// record top (start) vertex:
-				top.row = i;
-				top.col = j;
+				// record start (top) vertex:
+				start.row = i;
+				start.col = j;
 				// initialize farthest left and and right vertices:
-				most_left = top;
-				most_right = top;
+				most_left = start;
+				most_right = start;
 				
 				// Bool for edge continuation:
 				int connect = 1;
 				// starting pixel:
-				current_pixel = top;
+				current_pixel = start;
 				// travel down (or down-left or down-right) potential edge:
 				while(connect == 1 && current_pixel.row < NUM_ROWS-vert_scan_length && current_pixel.col >= horiz_scan_length && current_pixel.col < NUM_COLS-horiz_scan_length) {
 					// keep rolling maximums of farthest left and right vertices:
@@ -91,16 +95,30 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 						connect = 0;
 					}
 				}
-				// record bottom (stop) vertex:
-				bottom = current_pixel;
+				// record stop (bottom) vertex:
+				stop = current_pixel;
 				
 				// save edge if its L1-norm is large enough:
-				if (L1_norm_int(top.row - bottom.row, top.col - bottom.col) >= min_edge_length) {
-					// keep middle (corner) vertex that is vertically closest and horizontally farthest from the average of the top and bottom vertices:
-					top_bottom_avg.row = (top.row + bottom.row) / 2;
-					top_bottom_avg.col = (top.col + bottom.col) / 2;
+				if (L1_norm_int(start.row - stop.row, start.col - stop.col) >= min_edge_length) {
+					// average of start and stop vertices:
+					avg.row = (start.row + stop.row) / 2;
+					avg.col = (start.col + stop.col) / 2;
+					// keep middle (corner) vertex that is horizontally farthest and vertically closest from the average of the top and bottom vertices:
+					int left_quality = abs_int(most_left.col - avg.col) - abs_int(most_left.row - avg.row);
+					int right_quality = abs_int(most_right.col - avg.col) - abs_int(most_right.row - avg.row);
+					if (left_quality > right_quality) {
+						corner = most_left;
+					}
+					else {
+						corner = most_right;
+					}
 					
-					// edges.edge_array[edges.num_edges]
+					// construct edge:
+					long_edge.top = start;
+					long_edge.middle = corner;
+					long_edge.bottom = stop;
+					
+					edges.edge_array[edges.num_edges] = long_edge;
 					edges.num_edges++;
 				}
 			}
