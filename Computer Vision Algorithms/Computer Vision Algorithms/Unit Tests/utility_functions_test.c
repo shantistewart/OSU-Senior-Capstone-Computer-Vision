@@ -12,18 +12,22 @@
 
 
 
-/*
+// /*
 int main() {
-	// --------------------TESTING L1_norm() FUNCTION--------------------
-	printf("\n----------TESTING L1_norm() FUNCTION----------\n\n");
+	// --------------------TESTING L1_norm_float() and L1_norm_int() FUNCTIONS--------------------
+	printf("\n----------TESTING L1_norm_float() and L1_norm_int() FUNCTIONS----------\n\n");
 	
 	// test values:
-	float x1 = 2.5;
-	float x2 = -3.2;
+	float x1_float = 2.5;
+	float x2_float = -3.2;
+	int x1_int = -7;
+	int x2_int = -9;
 	
-	// call function:
-	float norm = L1_norm(x1, x2);
-	printf("L1-norm of vector [%f, %f]: %f\n\n\n", x1, x2, norm);
+	// call functions:
+	float norm_float = L1_norm_float(x1_float, x2_float);
+	int norm_int = L1_norm_int(x1_int, x2_int);
+	printf("L1-norm of vector [%f, %f]: %f\n", x1_float, x2_float, norm_float);
+	printf("L1-norm of vector [%d, %d]: %d\n\n\n", x1_int, x2_int, norm_int);
 	
 	
 	
@@ -162,4 +166,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-*/
+// */
