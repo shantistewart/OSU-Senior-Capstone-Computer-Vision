@@ -30,6 +30,7 @@ Outputs:
 struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh, int vert_scan_length, int horiz_scan_length, int min_edge_length) {
 	// array of edges:
 	struct edge_list edges;
+	edges.num_edges = 0;
 	
 	// top (start) vertex:
 	struct vertex top;
@@ -39,6 +40,8 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 	struct vertex most_left;
 	// pixel that is farthest to the right:
 	struct vertex most_right;
+	// average of top and bottom vertices:
+	struct vertex top_bottom_avg;
 	// current pixel coordinates:
 	struct vertex current_pixel;
 	// subarray for edge scanning:
@@ -93,7 +96,12 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				
 				// save edge if its L1-norm is large enough:
 				if (L1_norm_int(top.row - bottom.row, top.col - bottom.col) >= min_edge_length) {
+					// keep middle (corner) vertex that is vertically closest and horizontally farthest from the average of the top and bottom vertices:
+					top_bottom_avg.row = (top.row + bottom.row) / 2;
+					top_bottom_avg.col = (top.col + bottom.col) / 2;
 					
+					// edges.edge_array[edges.num_edges]
+					edges.num_edges++;
 				}
 			}
 		}
