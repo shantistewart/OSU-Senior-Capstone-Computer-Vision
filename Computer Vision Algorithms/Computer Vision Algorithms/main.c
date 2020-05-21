@@ -11,6 +11,8 @@
 // include function files:
 #include "blur_filter.h"
 #include "estimate_grad.h"
+#include "non_max_suppress.h"
+#include "find_edges.h"
 
 
 
