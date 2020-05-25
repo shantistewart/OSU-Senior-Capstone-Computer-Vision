@@ -89,7 +89,12 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 					// find max element in scan subarray:
 					struct arg_max max_elem = arg_maximum(vert_scan_length, 2*horiz_scan_length+1, subarray);
 					
-					// erase (set to zero) all elements in scan subarray:
+					// erase all elements in scan subarray above (and including) row of max element:
+					for (int k = 0; k <= max_elem.coord.row; k++) {
+						for (int l = 0; l < 2*horiz_scan_length+1; l++) {
+							grads.pixels[current_pixel.row + 1 + k][current_pixel.col - horiz_scan_length + l] = 0.0;
+						}
+					}
 					
 					// continue edge if above low threshold:
 					if (max_elem.max >= low_thresh) {
