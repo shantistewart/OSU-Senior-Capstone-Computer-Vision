@@ -36,7 +36,7 @@ int main() {
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
-				if (j == 5) {
+				if ( (i < NUM_ROWS/2 && i == j) || (i >= NUM_ROWS/2 && i == NUM_COLS-j) ) {
 					raw_image[color][i][j] = 255.0;
 				}
 				else {
@@ -52,9 +52,9 @@ int main() {
 	// display edges:
 	for(int e=0; e<edges.num_edges; e++) {
 		printf("Edge %d:	", e+1);
-		printf("Top vertex: (%d, %d);  ", edges.edge_array[e].top.row, edges.edge_array[e].top.col);
-		printf("Middle vertex: (%d, %d);  ", edges.edge_array[e].middle.row, edges.edge_array[e].middle.col);
-		printf("Bottom vertex: (%d, %d)\n", edges.edge_array[e].bottom.row, edges.edge_array[e].bottom.col);
+		printf("Top vertex: (%d, %d);  ", edges.edge_array[e].top.row+1, edges.edge_array[e].top.col+1);
+		printf("Middle vertex: (%d, %d);  ", edges.edge_array[e].middle.row+1, edges.edge_array[e].middle.col+1);
+		printf("Bottom vertex: (%d, %d)\n", edges.edge_array[e].bottom.row+1, edges.edge_array[e].bottom.col+1);
 	}
 	
 	
