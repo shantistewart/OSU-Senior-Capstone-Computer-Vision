@@ -17,6 +17,7 @@
 		365998622454C5A00030AC40 /* non_max_suppress_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 365998612454C5A00030AC40 /* non_max_suppress_test.c */; };
 		365998642454C61A0030AC40 /* utility_functions_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 365998632454C61A0030AC40 /* utility_functions_test.c */; };
 		3699D318244419C30017ED38 /* estimate_grad.c in Sources */ = {isa = PBXBuildFile; fileRef = 3699D317244419C30017ED38 /* estimate_grad.c */; };
+		36ADAA27247B776100DA8ABC /* edge_detection.c in Sources */ = {isa = PBXBuildFile; fileRef = 36ADAA26247B776100DA8ABC /* edge_detection.c */; };
 		36F73C00243A9CE000BA63F3 /* utility_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = 36F73BFF243A9CE000BA63F3 /* utility_functions.c */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		365998632454C61A0030AC40 /* utility_functions_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility_functions_test.c; sourceTree = "<group>"; };
 		3699D316244419C30017ED38 /* estimate_grad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = estimate_grad.h; sourceTree = "<group>"; };
 		3699D317244419C30017ED38 /* estimate_grad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = estimate_grad.c; sourceTree = "<group>"; };
+		36ADAA25247B776100DA8ABC /* edge_detection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = edge_detection.h; sourceTree = "<group>"; };
+		36ADAA26247B776100DA8ABC /* edge_detection.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = edge_detection.c; sourceTree = "<group>"; };
 		36F73BFE243A9CE000BA63F3 /* utility_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utility_functions.h; sourceTree = "<group>"; };
 		36F73BFF243A9CE000BA63F3 /* utility_functions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utility_functions.c; sourceTree = "<group>"; };
 		36F73C03243ACF1400BA63F3 /* structs_and_constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = structs_and_constants.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				3659985C2454C3400030AC40 /* Unit Tests */,
 				362ECC5C24396B5600E31FE4 /* main.c */,
 				36F73C03243ACF1400BA63F3 /* structs_and_constants.h */,
+				36ADAA25247B776100DA8ABC /* edge_detection.h */,
+				36ADAA26247B776100DA8ABC /* edge_detection.c */,
 				3649C1ED2439B5A7006595A6 /* blur_filter.h */,
 				3649C1EE2439B5A7006595A6 /* blur_filter.c */,
 				3699D316244419C30017ED38 /* estimate_grad.h */,
@@ -172,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36ADAA27247B776100DA8ABC /* edge_detection.c in Sources */,
 				36F73C00243A9CE000BA63F3 /* utility_functions.c in Sources */,
 				3699D318244419C30017ED38 /* estimate_grad.c in Sources */,
 				362843DC2455266A00E3C75B /* find_edges.c in Sources */,
