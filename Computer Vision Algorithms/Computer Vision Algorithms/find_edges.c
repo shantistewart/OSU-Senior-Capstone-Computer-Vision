@@ -121,6 +121,7 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 					
 					edges.edge_array[edges.num_edges] = long_edge;
 					edges.num_edges++;
+					printf("\nnum_edges: %d\n", edges.num_edges);
 				}
 				
 				// if max number of edges is reached return from function
