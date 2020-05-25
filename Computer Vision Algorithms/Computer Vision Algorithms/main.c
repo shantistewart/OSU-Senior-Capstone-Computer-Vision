@@ -17,10 +17,10 @@
 int main() {
 	// hyperparameters:
 	float sigma = 1.0;
-	int suppress_length = 20;
-	int low_thresh = 10;
-	int high_thresh = 50;
-	int vert_scan_length = 14;
+	int suppress_length = 2;
+	int low_thresh = 5;
+	int high_thresh = 10;
+	int vert_scan_length = 3;
 	int horiz_scan_length = 1;
 	int min_edge_length = 50;
 	// hyperparameter constants (in structs_and_constants.h):
@@ -36,8 +36,12 @@ int main() {
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
-				raw_image[color][i][j] = (float)(color+1)*(i*NUM_COLS + j + 1) * (2 * 255 / (float)(NUM_COLORS*NUM_ROWS*NUM_COLS));
-				// printf("%f  ", raw_image[color][i][j]);
+				if (j == 5) {
+					raw_image[color][i][j] = 255.0;
+				}
+				else {
+					raw_image[color][i][j] = 0.0;
+				}
 			}
 		}
 	}

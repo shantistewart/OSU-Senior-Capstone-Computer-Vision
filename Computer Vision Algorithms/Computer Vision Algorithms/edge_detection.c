@@ -32,30 +32,60 @@ Outputs:
 		type: struct edge_list
 */
 struct edge_list canny_edge_detection(float raw_image[NUM_COLORS][NUM_ROWS][NUM_COLS], float sigma, int suppress_length, int low_thresh, int high_thresh, int vert_scan_length, int horiz_scan_length, int min_edge_length) {
-	// wrap raw image values into a RGB_image struct:
+	// wrap raw image values into a RGB_image struct and display values:
+	printf("\nInput image array:\n");
 	struct RGB_image raw_pic;
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
 				raw_pic.pixels[color][i][j] = raw_image[color][i][j];
+				printf("%d  ", (int)raw_pic.pixels[color][i][j]);
 			}
+			printf("\n");
 		}
 	}
+	printf("\n");
 	
 	
 	// STEP 1: GAUSSIAN BLUR FILTER
 	struct RGB_image blur_pic = blur_filter(raw_pic, sigma);
 	printf("\nFinished Gaussian blur filter step!\n");
+	// display blurred image array:
+	for (int color=0; color<NUM_COLORS; color++) {
+		for (int i=0; i<NUM_ROWS; i++) {
+			for (int j=0; j<NUM_COLS; j++) {
+				printf("%d  ", (int)blur_pic.pixels[color][i][j]);
+			}
+			printf("\n");
+		}
+		printf("\n");
+	}
 	
 	// STEP 2: GRADIENT ESTIMATION
 	// to normalize Sobel operators:
 	int norm = 1;
 	struct image grads = estimate_grad(blur_pic, norm);
 	printf("Finished gradient estimation step!\n");
+	// display gradient array:
+	for (int i=0; i<NUM_ROWS; i++) {
+		for (int j=0; j<NUM_COLS; j++) {
+			printf("%d  ", (int)grads.pixels[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
 	
 	// STEP 3: HORIZONTAL NON-MAXIMAL SUPPRESSION
 	struct image suppress_grads = non_max_suppress(grads, suppress_length);
 	printf("Finished horizontal non-maximal suppression step!\n");
+	// display non-maximally suppressed gradient array:
+	for (int i=0; i<NUM_ROWS; i++) {
+		for (int j=0; j<NUM_COLS; j++) {
+			printf("%d  ", (int)suppress_grads.pixels[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
 	
 	// STEP 4: LONG VERTICAL EDGE DETERMINATION
 	struct edge_list edges = find_edges(suppress_grads, low_thresh, high_thresh, vert_scan_length, horiz_scan_length, min_edge_length);
