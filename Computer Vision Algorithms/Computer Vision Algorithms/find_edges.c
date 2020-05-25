@@ -57,7 +57,7 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 		for (int j=0; j<NUM_COLS; j++) {
 			// start of an edge must be above high threshold:
 			if (grads.pixels[i][j] >= high_thresh) {
-				printf("\nStart edge.\n");
+				// printf("\nStart edge.\n");
 				// record start (top) vertex:
 				start.row = i;
 				start.col = j;
@@ -71,7 +71,7 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				current_pixel = start;
 				// travel down (or down-left or down-right) potential edge:
 				while(connect == 1 && current_pixel.row < NUM_ROWS-vert_scan_length && current_pixel.col >= horiz_scan_length && current_pixel.col < NUM_COLS-horiz_scan_length) {
-					printf("current_pixel: (%d, %d)\n", current_pixel.row, current_pixel.col);
+					// printf("current_pixel: (%d, %d)\n", current_pixel.row, current_pixel.col);
 					// keep rolling maximums of farthest left and right vertices:
 					if (current_pixel.col < most_left.col) {
 						most_left = current_pixel;
@@ -133,7 +133,6 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 					
 					edges.edge_array[edges.num_edges] = long_edge;
 					edges.num_edges++;
-					printf("\nnum_edges: %d\n", edges.num_edges);
 				}
 				
 				// if max number of edges is reached return from function

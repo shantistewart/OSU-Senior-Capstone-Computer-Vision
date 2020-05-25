@@ -22,7 +22,7 @@ int main() {
 	int high_thresh = 10;
 	int vert_scan_length = 3;
 	int horiz_scan_length = 1;
-	int min_edge_length = 50;
+	int min_edge_length = 5;
 	// hyperparameter constants (in structs_and_constants.h):
 	// #define KERNEL_SIZE 3
 	// #define MAX_EDGES 10
@@ -48,6 +48,14 @@ int main() {
 	
 	// perform modified Canny edge detection:
 	struct edge_list edges = canny_edge_detection(raw_image, sigma, suppress_length, low_thresh, high_thresh, vert_scan_length, horiz_scan_length, min_edge_length);
+	
+	// display edges:
+	for(int e=0; e<edges.num_edges; e++) {
+		printf("Edge %d:	", e+1);
+		printf("Top vertex: (%d, %d);  ", edges.edge_array[e].top.row, edges.edge_array[e].top.col);
+		printf("Middle vertex: (%d, %d);  ", edges.edge_array[e].middle.row, edges.edge_array[e].middle.col);
+		printf("Bottom vertex: (%d, %d)\n", edges.edge_array[e].bottom.row, edges.edge_array[e].bottom.col);
+	}
 	
 	
 	printf("\n\n");
