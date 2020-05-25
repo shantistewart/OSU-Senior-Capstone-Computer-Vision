@@ -31,17 +31,14 @@ int main() {
 	
 	// test input image:
 	float raw_image[NUM_COLORS][NUM_ROWS][NUM_COLS];
-	// fill input image array and display:
+	// fill input image array:
 	printf("Input image array:\n\n");
 	for (int color=0; color<NUM_COLORS; color++) {
 		for (int i=0; i<NUM_ROWS; i++) {
 			for (int j=0; j<NUM_COLS; j++) {
 				raw_image[color][i][j] = (color+1)*(i*NUM_COLS + j + 1);
-				printf("%f  ", raw_image[color][i][j]);
 			}
-			printf("\n");
 		}
-		printf("\n");
 	}
 	
 	// perform modified Canny edge detection:
