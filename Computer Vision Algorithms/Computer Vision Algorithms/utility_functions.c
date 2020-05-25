@@ -180,19 +180,6 @@ struct RGB_image kernel_conv_2D(struct RGB_image pic, int N, float kernel[N][N])
 			}
 		}
 	}
-	/*
-	// display padded input array:
-	printf("\nPadded input array:\n\n");
-	for (int color=0; color<NUM_COLORS; color++) {
-		for (int i=0; i<NUM_ROWS+2*pad; i++) {
-			for (int j=0; j<NUM_COLS+2*pad; j++) {
-				printf("%f  ", pad_array[color][i][j]);
-			}
-			printf("\n");
-		}
-		printf("\n");
-	}
-	*/
 	
 	// 2D convolution output RGB_image struct:
 	struct RGB_image conv_pic;
