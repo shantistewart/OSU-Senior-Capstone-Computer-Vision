@@ -26,6 +26,8 @@ int main() {
 	// call functions:
 	float norm_float = L1_norm_float(x1_float, x2_float);
 	int norm_int = L1_norm_int(x1_int, x2_int);
+	
+	// display L1 norms:
 	printf("L1-norm of vector [%f, %f]: %f\n", x1_float, x2_float, norm_float);
 	printf("L1-norm of vector [%d, %d]: %d\n\n\n", x1_int, x2_int, norm_int);
 	
@@ -47,6 +49,8 @@ int main() {
 	
 	// call function:
 	float max = maximum(size, array_1D);
+	
+	// display max value:
 	printf("\nMax of array: %f\n\n\n", max);
 	
 	
@@ -73,6 +77,8 @@ int main() {
 	
 	// call function:
 	struct arg_max max_elem = arg_maximum(M, N, array_2D);
+	
+	// display max value and argmax:
 	printf("\nMax element of array: %f at (%d, %d)\n\n\n", max_elem.max, max_elem.coord.row, max_elem.coord.col);
 	
 	
@@ -112,6 +118,8 @@ int main() {
 	
 	// call function:
 	float conv_sum = conv_sum_2D(M, N, array1, array2);
+	
+	// display convolution sum:
 	printf("\nConvolution sum of array1 and array2: %f\n\n\n", conv_sum);
 	
 	
@@ -150,6 +158,7 @@ int main() {
 	
 	// call function:
 	struct RGB_image conv_pic = kernel_conv_2D(array, N, kernel);
+	
 	// display convolution output array:
 	printf("\nConvolution output array:\n\n");
 	for (int color=0; color<NUM_COLORS; color++) {

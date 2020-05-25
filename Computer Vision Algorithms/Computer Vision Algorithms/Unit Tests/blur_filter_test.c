@@ -19,11 +19,12 @@ int main() {
 	
 	// test standard deviation of Gaussian kernel:
 	float sigma = 1.0;
+	
 	// call function:
 	struct gaussian_kernel g_kernel = gaussian_2D_kernel(sigma);
+	
 	// rolling sum of weights (to check normalization):
 	float weight_sum = 0.0;
-	
 	printf("Gaussian kernel of size %dx%d with a standard deviation of %f:\n\n", KERNEL_SIZE, KERNEL_SIZE, sigma);
 	for (int i=0; i<KERNEL_SIZE; i++) {
 		for (int j=0; j<KERNEL_SIZE; j++) {
@@ -56,6 +57,7 @@ int main() {
 	
 	// call function:
 	struct RGB_image blur_pic = blur_filter(raw_pic, sigma);
+	
 	// display blurred image array:
 	printf("\nBlurred image array:\n\n");
 	for (int color=0; color<NUM_COLORS; color++) {
