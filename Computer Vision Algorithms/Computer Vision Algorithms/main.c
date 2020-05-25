@@ -20,7 +20,7 @@ int main() {
 	int suppress_length = 2;
 	int low_thresh = 5;
 	int high_thresh = 10;
-	int vert_scan_length = 3;
+	int vert_scan_length = 2;
 	int horiz_scan_length = 1;
 	int min_edge_length = 5;
 	// hyperparameter constants (in structs_and_constants.h):
