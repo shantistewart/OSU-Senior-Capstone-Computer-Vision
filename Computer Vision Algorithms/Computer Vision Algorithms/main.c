@@ -18,8 +18,8 @@ int main() {
 	// hyperparameters:
 	float sigma = 1.0;
 	int suppress_length = 2;
-	int low_thresh = 5;
-	int high_thresh = 10;
+	int low_thresh = 30;
+	int high_thresh = 50;
 	int vert_scan_length = 2;
 	int horiz_scan_length = 1;
 	int min_edge_length = 5;
