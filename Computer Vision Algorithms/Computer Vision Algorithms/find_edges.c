@@ -61,7 +61,7 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 				// record start (top) vertex:
 				start.row = i;
 				start.col = j;
-				// initialize farthest left and and right vertices:
+				// initialize farthest left and and right vertices to start vertex:
 				most_left = start;
 				most_right = start;
 				
@@ -86,8 +86,11 @@ struct edge_list find_edges(struct image grads, int low_thresh, int high_thresh,
 							subarray[k][l] = grads.pixels[current_pixel.row + 1 + k][current_pixel.col - horiz_scan_length + l];
 						}
 					}
-					// take max element in scan subarray:
+					// find max element in scan subarray:
 					struct arg_max max_elem = arg_maximum(vert_scan_length, 2*horiz_scan_length+1, subarray);
+					
+					// erase (set to zero) all elements in scan subarray:
+					
 					// continue edge if above low threshold:
 					if (max_elem.max >= low_thresh) {
 						// printf("max_elem: (%d, %d)\n", max_elem.coord.row, max_elem.coord.col);
