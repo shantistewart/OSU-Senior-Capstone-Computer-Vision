@@ -12,7 +12,7 @@
 
 
 
-// /*
+/*
 int main() {
 	// --------------------TESTING L1_norm_float() and L1_norm_int() FUNCTIONS--------------------
 	printf("\n----------TESTING L1_norm_float() and L1_norm_int() FUNCTIONS----------\n\n");
@@ -166,4 +166,4 @@ int main() {
 	printf("\n\n");
 	return 0;
 }
-// */
+*/

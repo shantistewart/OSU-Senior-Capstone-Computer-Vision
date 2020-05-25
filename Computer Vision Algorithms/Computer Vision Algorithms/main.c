@@ -16,11 +16,12 @@
 
 
 
-/*
+// /*
 int main() {
-    printf("Computer Vision Algorithms");
+    printf("\nModified Canny Edge Detection Algorithm:\n");
+	
 	
 	printf("\n\n");
     return 0;
 }
-*/
+// */
