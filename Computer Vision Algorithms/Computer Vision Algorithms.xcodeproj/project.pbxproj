@@ -65,6 +65,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360D8E4D248EC86F00D6C3F4 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				36F73C03243ACF1400BA63F3 /* structs_and_constants.h */,
+				36ADAA25247B776100DA8ABC /* edge_detection.h */,
+				3649C1ED2439B5A7006595A6 /* blur_filter.h */,
+				3699D316244419C30017ED38 /* estimate_grad.h */,
+				3609DBBA2453A05300ACB6AA /* non_max_suppress.h */,
+				362843DA2455266A00E3C75B /* find_edges.h */,
+				36F73BFE243A9CE000BA63F3 /* utility_functions.h */,
+			);
+			path = "Header Files";
+			sourceTree = "<group>";
+		};
+		360D8E4E248EC8C500D6C3F4 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				36ADAA26247B776100DA8ABC /* edge_detection.c */,
+				3649C1EE2439B5A7006595A6 /* blur_filter.c */,
+				3699D317244419C30017ED38 /* estimate_grad.c */,
+				3609DBBB2453A05300ACB6AA /* non_max_suppress.c */,
+				362843DB2455266A00E3C75B /* find_edges.c */,
+				36F73BFF243A9CE000BA63F3 /* utility_functions.c */,
+			);
+			path = "Source Files";
+			sourceTree = "<group>";
+		};
 		362ECC5024396B5600E31FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -85,21 +112,10 @@
 		362ECC5B24396B5600E31FE4 /* Computer Vision Algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				360D8E4D248EC86F00D6C3F4 /* Header Files */,
+				360D8E4E248EC8C500D6C3F4 /* Source Files */,
 				3659985C2454C3400030AC40 /* Unit Tests */,
 				362ECC5C24396B5600E31FE4 /* main.c */,
-				36F73C03243ACF1400BA63F3 /* structs_and_constants.h */,
-				36ADAA25247B776100DA8ABC /* edge_detection.h */,
-				36ADAA26247B776100DA8ABC /* edge_detection.c */,
-				3649C1ED2439B5A7006595A6 /* blur_filter.h */,
-				3649C1EE2439B5A7006595A6 /* blur_filter.c */,
-				3699D316244419C30017ED38 /* estimate_grad.h */,
-				3699D317244419C30017ED38 /* estimate_grad.c */,
-				3609DBBA2453A05300ACB6AA /* non_max_suppress.h */,
-				3609DBBB2453A05300ACB6AA /* non_max_suppress.c */,
-				362843DA2455266A00E3C75B /* find_edges.h */,
-				362843DB2455266A00E3C75B /* find_edges.c */,
-				36F73BFE243A9CE000BA63F3 /* utility_functions.h */,
-				36F73BFF243A9CE000BA63F3 /* utility_functions.c */,
 			);
 			path = "Computer Vision Algorithms";
 			sourceTree = "<group>";
