@@ -78,27 +78,6 @@ struct arg_max {
 	struct vertex coord;
 };
 
-// line in image:
-struct line {
-	float slope;
-	int intercept;
-};
-
-// HSV color values:
-struct color {
-	// hue:
-	float h;
-	// saturation:
-	float s;
-	// value:
-	float v;
-};
-
-// array of average color (HSV) values for possible objects in an image:
-struct object_avg_colors {
-	struct color avg_colors[MAX_EDGES-1];
-};
-
 
 
 #endif /* structs_and_constants_h */

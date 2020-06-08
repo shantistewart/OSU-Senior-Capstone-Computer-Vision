@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Computer Vision Algorithms.xcodeproj">
+      location = "group:../../../stb-master">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
