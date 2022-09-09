@@ -1,2 +1,2 @@
 # OSU-Senior-Capstone-Computer-Vision
-This repository contains computer vision algorithms implemented in C.
+Computer vision algorithms implemented in C for a project implementing obstacle avoidance for small mobile robots.
